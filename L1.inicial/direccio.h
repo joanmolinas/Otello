@@ -11,8 +11,7 @@ class direccio {
    private:
      ///--- Llista de direccions possibles, més STOP per marcar
      ///--- que no n'hi ha més.
-     static const char * EnumStrings[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
-     static const coord * EnumCoords[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
+
      enum dirs {N,NE,E,SE,S,SO,O,NO,STOP};
      dirs d;
 
@@ -36,5 +35,5 @@ class direccio {
 
      ///--- Obtenir un string amb el nom de la direcció.
      ///--- Aquest mètode és útil per fer debugging.
-     string mostra() const;
+     std::string mostra() const;
 };

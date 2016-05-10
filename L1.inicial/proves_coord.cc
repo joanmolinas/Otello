@@ -7,7 +7,7 @@ int main() {
 
   int x,y;
 
-  // preguntar components 
+  // preguntar components
   cout << " Entreu coordenades: ";
   cin >> x >> y;
   // crear variable coord amb aquestes coordenades
@@ -19,11 +19,11 @@ int main() {
   coord d(x,y);
 
   // comparar les dues coordenades p i d
-  bool iguals = ????;
+  bool iguals = p == d;
   cout<<"Coordenades i desplaçament són iguals: "<<boolalpha<<iguals<<endl;
 
-  // sumar els dos parells de coordenades p + d 
-  coord z = ????;
+  // sumar els dos parells de coordenades p + d
+  coord z = p+d;
   cout<<p.mostra()<<" + "<<d.mostra()<<" = "<<z.mostra()<<endl;
 
 }

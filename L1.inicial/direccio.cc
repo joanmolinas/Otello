@@ -11,7 +11,7 @@ direccio::direccio() {
 
 ///--- Veure si el valor de la direcció és el del final de la llista.
 bool direccio::is_stop() const {
-  return d == STOP
+  return d == STOP;
 }
 
 ///--- canviar el valor de la direccio, posant-li el primer de la llista
@@ -29,7 +29,7 @@ direccio& direccio::operator++() {
 ///--- Obtenir les components x,y que representen un moviment
 ///--- en aquesta direcció. P.ex  N -> (-1,0), NE -> (-1,1)
 coord direccio::despl() const {
-  const coord * EnumCoords[] = {
+  coord EnumCoords[] = {
     coord(-1,0),
     coord(-1,1),
     coord(0,1),
@@ -80,6 +80,7 @@ coord direccio::despl() const {
 
 ///--- Obtenir un string amb el nom de la direcció.
 ///--- Aquest mètode és útil per fer debugging.
-string direccio::mostra() const {
+std::string direccio::mostra() const {
+  string EnumStrings[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
   return EnumStrings[d];
 }

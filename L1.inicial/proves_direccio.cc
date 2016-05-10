@@ -6,7 +6,7 @@ using namespace std;
 int main() {
   int x,y;
 
-  // preguntar components 
+  // preguntar components
   cout << " Entreu coordenades: ";
   cin >> x >> y;
   // crear una variable coord amb aquestes coordenades
@@ -14,17 +14,18 @@ int main() {
 
   // variable direccio
   direccio dir;
-  ????;    // iniciarla al primer valor de la llista (NORD)
-  while (not ????()) {
+
+  // iniciarla al primer valor de la llista (NORD)
+  while (not dir.is_stop()) {
     // obtenir el moviment en (x,y) que suposa la direccio dir,
     // i sumar-lo a la coordenada base (c)
     coord c2 = c + dir.despl();
 
     // imprimir resultat
-    cout<<c.mostra()<<" "<<????<<" = "<<c2.mostra()<<endl;
+    cout<<c.mostra()<<" "<<c.mostra1()<<" = "<<c2.mostra()<<endl;
 
     // seguent direccio de la llista
-    ????;
+    ++dir;
   }
 
 }
