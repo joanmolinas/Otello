@@ -18,22 +18,22 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   t.es_pot_girar(ci, d, color, girar, cf);
   cout<<"Des de "<<ci.mostra1()<<" en la direcció "<<d.mostra();
   if (girar)
-    cout<<" es poden girar fitxes de l'adversari arribant a "<<????<<"."<<endl;
+    cout<<" es poden girar fitxes de l'adversari arribant a "<<3<<"."<<endl;
   else
     cout<<" no es poden girar fitxes de l'adversari."<<endl;
 
   /// Si es pot girar, posem la fitxa i canviem el color de les caselles
   /// des de la casella ci fins a la casella cf en la direcció d
   if (girar) {
-    ????
+    // ????
   }
-    
+
   /// Dibuixem el taulell amb les caselles on pot tirar el contrincant
   t.mostra(-1*color);
   cout<<endl;
 
   /// Avaluem el taulell
-  int val = ????;
+  int val = t.avalua();
   cout<<"El valor del taulell és: "<<val<<endl;
   if (val > 0)
     cout<<"Guanyen les blanques."<<endl;
@@ -47,17 +47,19 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   cout<<"Les BLANQUES poden jugar: "<<t.pot_jugar(casella::BLANCA)<<endl;
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::BLANCA);
-  while (not ????) {
+  while (not true) {
     cout << caselles.front().mostra1() << " ";
-    ????;
+    // ????;
+    break;
   }
   cout<<endl;
   cout<<"Les NEGRES poden jugar: "<<t.pot_jugar(casella::NEGRA)<<endl;
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::NEGRA);
-  while (not ????) {
+  while (not true) {
     cout << caselles.front().mostra1() << " ";
-    ????;
+    // ????;
+    break;
   }
   cout<<endl;
 }
@@ -75,7 +77,7 @@ int main() {
                  coord(5,4), coord(5,4), coord(5,5), coord(5,5)};
   direccio vd[8];      // Totes inicialitzades amb la direcció NORD
   ++++++++++++++vd[6]; // La direcció 6 conté NORD-OEST (7 increments)
-  int color[8] = {casella::BLANCA, casella::NEGRA, casella::BLANCA, casella::NEGRA, 
+  int color[8] = {casella::BLANCA, casella::NEGRA, casella::BLANCA, casella::NEGRA,
                   casella::BLANCA, casella::NEGRA, casella::BLANCA, casella::NEGRA};
 
   for (nat i=0; i<8; i++) {

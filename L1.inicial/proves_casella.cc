@@ -3,10 +3,10 @@
 
 using namespace std;
 
-/// funció que ensenya el que té la casella per dins, usant 
+/// funció que ensenya el que té la casella per dins, usant
 /// els mètodes de la classe.
 void mostra_casella(casella c) {
-  cout<<"["<<????<<"]";
+  cout<<"["<<c.mostra()<<"]";
   cout<<boolalpha;
   cout<< "  contingut="<< c.valor();
   cout<< "  visitada="<< c.es_visitada();
@@ -14,7 +14,7 @@ void mostra_casella(casella c) {
 }
 
 int main() {
-  
+
   // Proves amb les operacions de 'casella':
   // Omplir-la de diferents maneres, i cridar les operacions
   // de marcar, desmarcar, etc, per comprovar si funcionen.
