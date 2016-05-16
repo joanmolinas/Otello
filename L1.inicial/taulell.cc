@@ -44,13 +44,12 @@ void taulell::mostra() const {
   // escriu capçalera per enumerar columnes
   for (int i = 0; i <= taula.size(); i++) {
     if (i != 0) cout << i;
-    for (int j = 0; j <= taula[i].size(); j++) {
+    for (int j = 1; j <= taula[i].size(); j++) {
       // escriu contingut amb la numeració de fila al principi
       cout << " ";
-      if (i == 0)
-      	if (j != 0) cout << j << endl;
+      if (i == 0) cout << j;
       else {
-    	casella c = taula[i-1][j-1];
+    	  casella c = taula[i-1][j-1];
         cout << c.mostra();
       }
     }
