@@ -42,15 +42,15 @@ casella& taulell::operator()(coord p) {
 //---- Escriu a la pantalla el contingut del taulell.
 void taulell::mostra() const {
   // escriu capçalera per enumerar columnes
-  for (int i = 0; i <= taula.size(); i++) {
-    cout<<" "<<i;
-    for (int j = 0; j <= taula[i].size(); j++) {
+  for (int i = 0; i < taula.size(); i++) {
+    if (i != 0) cout << i;
+    for (int j = 0; j < taula[i].size(); j++) {
       // escriu contingut amb la numeració de fila al principi
-      if (j != 0) {
-        casella c = taula[i][j];
-        cout<<" "<<c.mostra();
+      if (i == 0) {
+        cout << " " << j << endl;
       } else {
-        cout<<j<<endl;
+    	casella c = taula[i-1][j-1];
+        cout << " " << c.mostra();
       }
     }
   }
