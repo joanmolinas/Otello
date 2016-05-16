@@ -15,6 +15,13 @@ taulell::taulell(nat n) {
   // inicialitza les 4 caselles centrals del taulell
   // si n és senar, les 4 caselles centrals queden una mica desplaçades amunt i a l'esquerra
   //TODO:
+
+  int mitat = n/2;
+  taula[mitat-1][mitat-1].omple(casella::BLANCA);
+  taula[mitat][mitat-1].omple(casella::NEGRA);
+  taula[mitat-1][mitat].omple(casella::NEGRA);
+  taula[mitat][mitat].omple(casella::BLANCA);
+
 }
 
 

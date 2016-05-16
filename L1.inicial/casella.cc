@@ -36,13 +36,13 @@ int casella::valor() const {
 char casella::mostra() const {
   char caracter;
   switch (color) {
-    case 1:
+    case BLANCA:
       caracter = 'B';
     break;
-    case -1:
+    case NEGRA:
       caracter = 'N';
     break;
-    case 0:
+    case LLIURE:
       caracter = '-';
     break;
     default: break;

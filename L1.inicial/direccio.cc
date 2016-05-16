@@ -81,6 +81,6 @@ coord direccio::despl() const {
 ///--- Obtenir un string amb el nom de la direcció.
 ///--- Aquest mètode és útil per fer debugging.
 std::string direccio::mostra() const {
-  string EnumStrings[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
+  static string EnumStrings[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
   return EnumStrings[d];
 }
