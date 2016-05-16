@@ -1,6 +1,6 @@
 TEST=../L1.tests
 
-all:	proves_coord proves_direccio proves_casella proves_taulell clean
+all: proves_taulell
 
 #proves_taulell otelo
 

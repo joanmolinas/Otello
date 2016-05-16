@@ -18,7 +18,7 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   t.es_pot_girar(ci, d, color, girar, cf);
   cout<<"Des de "<<ci.mostra1()<<" en la direcció "<<d.mostra();
   if (girar)
-    cout<<" es poden girar fitxes de l'adversari arribant a "<<3<<"."<<endl;
+    cout<<" es poden girar fitxes de l'adversari arribant a "<<cf.mostra()<<"."<<endl;
   else
     cout<<" no es poden girar fitxes de l'adversari."<<endl;
 

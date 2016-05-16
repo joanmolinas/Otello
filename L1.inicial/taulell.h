@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <list>
 
 #include "direccio.h"
 #include "casella.h"
@@ -19,7 +20,9 @@ class taulell {
    /// casella lliure extra, per si estem fora dels límits.
    casella lliure;
 
- public: 
+  //  void insereix_llista_ordenada(list<coord> &coordenades, coord c) const;
+
+ public:
    //---- Constructora. Serveix per declarar una variable
    //---- de tipus "taulell" de mida n x n inicialitzada
    //---- amb les fitxes inicials d'una partida de Reversi.
@@ -37,7 +40,7 @@ class taulell {
 
    //---- Escriu a la pantalla el contingut del taulell marcant amb 'x'
    //---- les caselles on es poden posar fitxes del color donat.
-   void mostra(int color) const; 
+   void mostra(int color) const;
 
    //---- Avalua les fitxes del taulell:
    //---- num_caselles_blanques - num_caselles_negres.
