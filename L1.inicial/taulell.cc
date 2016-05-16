@@ -112,7 +112,7 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //---- fins a la casella cf en la direcció d.
 void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
   casella inicial = taula[ci.x][ci.y];
-  casella final = tauña[cf.x]][cf.y];
+  casella final = taula[cf.x][cf.y];
 }
 
 

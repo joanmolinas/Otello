@@ -29,7 +29,7 @@ direccio& direccio::operator++() {
 ///--- Obtenir les components x,y que representen un moviment
 ///--- en aquesta direcció. P.ex  N -> (-1,0), NE -> (-1,1)
 coord direccio::despl() const {
-  coord EnumCoords[] = {
+  static coord EnumCoords[] = {
     coord(-1,0),
     coord(-1,1),
     coord(0,1),
