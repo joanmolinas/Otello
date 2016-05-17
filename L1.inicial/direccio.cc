@@ -40,39 +40,6 @@ coord direccio::despl() const {
     coord(-1,-1),
     coord(0,0)
   };
-  // int x, y;
-  // switch (dirs) {
-  //   case N:
-  //     x = -1;
-  //   break;
-  //   case NE:
-  //     x = -1;
-  //     y = 1;
-  //   break;
-  //   case E:
-  //     y = 1;
-  //   break;
-  //   case SE:
-  //     x = 1;
-  //     y = 1;
-  //   break;
-  //   case S:
-  //     x = 1;
-  //   break;
-  //   case SO:
-  //     x = 1;
-  //     y = -1
-  //   break;
-  //   case O:
-  //     y = -1;
-  //   break;
-  //   case N0:
-  //     x = -1;
-  //     y = -1;
-  //   break;
-  //   case default:
-  //   break;
-  // }
 
   return EnumCoords[d];
 }
@@ -81,6 +48,6 @@ coord direccio::despl() const {
 ///--- Obtenir un string amb el nom de la direcció.
 ///--- Aquest mètode és útil per fer debugging.
 std::string direccio::mostra() const {
-  static string EnumStrings[] = { "N", "NE", "E", "SE", "S", "SO", "O", "NO", "STOP"};
+  static string EnumStrings[] = { "NORD", "NORD-EST", "EST", "SUD-EST", "SUD", "SUD-OEST", "OEST", "NORD-OEST", "STOP"};
   return EnumStrings[d];
 }

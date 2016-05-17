@@ -109,49 +109,21 @@ bool taulell::pot_jugar(int color) const {
   return false;
 }
 
-//---- Insereix una coordenada de forma ordenada en una llista
-//---- S'encuen per fila creixent, i per la mateixa fila per columna creixent.
-//TODO: Afegir al .h
-void insereix_llista_ordenada(list<coord> &coordenades, coord c) {
-  bool inserit;
-  list<coord>::iterator it = coordenades.begin();
-  while(it != coordenades.end() && !inserit) {
-    coord coord_taulell = *it;
-    if (c.x < coord_taulell.x) {
-      coordenades.insert(it, c);
-      inserit = true;
-    } else if (c.x == coord_taulell.x && c.y <= coord_taulell.y) {
-      coordenades.insert(it, c);
-      inserit = true;
-    } else it++;
-  }
-  if (!inserit) coordenades.insert(it, c);
-}
-
-
-
 //---- Retorna una cua amb les coordenades a on el color pot jugar.
 //---- S'encuen per fila creixent, i per la mateixa fila per columna creixent.
 queue<coord> taulell::coord_pot_jugar(int color) const {
-  list<coord> coordenades;
-  list<coord>::iterator it = coordenades.begin();
-
+  queue<coord> coordenades;
   for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula.size(); j++) {
-      // if (algo(taula[i][j])) {
-        insereix_llista_ordenada(coordenades, coord(i,j));
-      // }
+      casella c = taula[i][j];
+      coord cord = coord(i,j);
+      if (c.valor() == casella::LLIURE && mov_possible(cord,color)) {
+        coordenades.push(cord);
+      }
     }
   }
 
-  ///List to Queue;
-  queue<coord> cua;
-  it = coordenades.begin();
-  while (it != coordenades.end()) {
-    cua.push(*it);
-    it++;
-  }
-  return cua;
+  return coordenades;
 }
 
 //---- Canvia el color de les caselles des de la casella ci
@@ -159,10 +131,10 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
   casella inicial = taula[ci.x][ci.y];
   casella final = taula[cf.x][cf.y];
-  int color_a_canviar = (inicial.valor() == casella::NEGRA) ? casella::BLANCA : casella::NEGRA;
-  while (inicial.valor() != final.valor()) {
+  while (!(ci == cf)) {
     ci = ci+d.despl();
     inicial = taula[ci.x][ci.y];
+    int color_a_canviar = (inicial.valor() == casella::NEGRA) ? casella::BLANCA : casella::NEGRA;
     inicial.omple(color_a_canviar);
   }
 }
@@ -170,7 +142,18 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 
 //---- Col·loca la fitxa de color a la coordena c i gira les fitxes necessàries segons regles d'Otelo
 void taulell::posa_fitxa(coord c, int color) {
-  casella c = taule[c.x][c.y];
-  c.omple(color);
+  casella cas = taula[c.x][c.y];
+  cas.omple(color);
+
   //Girar.
+  coord cfin;
+  bool girable;
+  direccio d;
+  while (!d.is_stop()) {
+    ++d;
+    es_pot_girar(c, d, color, girable, cfin);
+    if (girable) {
+      gira_fitxes(c, cfin, d);
+    }
+  }
 }

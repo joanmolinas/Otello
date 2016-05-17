@@ -1,6 +1,6 @@
 TEST=../L1.tests
 
-all: proves_taulell
+all: util proves_coord proves_direccio proves_casella proves_taulell
 
 #proves_taulell otelo
 
@@ -35,18 +35,18 @@ test_direccio:
 	@echo "--------------------------------------------------"
 	./proves_direccio < $(TEST)/direccio1.in | diff - $(TEST)/direccio1.out;
 
-# test_casella:
-# 	@echo "--------------------------------------------------"
-# 	./proves_casella | diff - $(TEST)/casella.out;
-#
-# test_taulell:
-# 	@echo "--------------------------------------------------"
-# 	./proves_taulell | diff - $(TEST)/taulell.out;
-#
-# test_otelo:
-# 	@echo "--------------------------------------------------"
-# 	./otelo 2 | diff - $(TEST)/otelo2.out;
-# 	./otelo 3 < $(TEST)/otelo3_1.in | diff - $(TEST)/otelo3_1.out;
-# 	./otelo 3 < $(TEST)/otelo3_2.in | diff - $(TEST)/otelo3_2.out;
-# 	./otelo 4 < $(TEST)/otelo4.in | diff - $(TEST)/otelo4.out;
-# 	./otelo 8 < $(TEST)/otelo8.in | diff - $(TEST)/otelo8.out;
+test_casella:
+	@echo "--------------------------------------------------"
+	./proves_casella | diff - $(TEST)/casella.out;
+
+test_taulell:
+	@echo "--------------------------------------------------"
+	./proves_taulell | diff - $(TEST)/taulell.out;
+
+test_otelo:
+	@echo "--------------------------------------------------"
+	./otelo 2 | diff - $(TEST)/otelo2.out;
+	./otelo 3 < $(TEST)/otelo3_1.in | diff - $(TEST)/otelo3_1.out;
+	./otelo 3 < $(TEST)/otelo3_2.in | diff - $(TEST)/otelo3_2.out;
+	./otelo 4 < $(TEST)/otelo4.in | diff - $(TEST)/otelo4.out;
+	./otelo 8 < $(TEST)/otelo8.in | diff - $(TEST)/otelo8.out;

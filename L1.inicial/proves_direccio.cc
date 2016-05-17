@@ -22,7 +22,7 @@ int main() {
     coord c2 = c + dir.despl();
 
     // imprimir resultat
-    cout<<c.mostra()<<" "<<c.mostra1()<<" = "<<c2.mostra()<<endl;
+    cout<<c.mostra()<<" "<<dir.mostra()<<" = "<<c2.mostra()<<endl;
 
     // seguent direccio de la llista
     ++dir;

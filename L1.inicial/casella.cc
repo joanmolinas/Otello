@@ -9,6 +9,7 @@
 //---- Crea una casella amb valor inicial LLIURE.
 casella::casella() {
   color = LLIURE;
+  visitada = false;
 }
 
 //---- Modifica el color de la casella.
