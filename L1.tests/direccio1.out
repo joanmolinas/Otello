@@ -1,0 +1,8 @@
+ Entreu coordenades: (1,2) NORD = (0,2)
+(1,2) NORD-EST = (0,3)
+(1,2) EST = (1,3)
+(1,2) SUD-EST = (2,3)
+(1,2) SUD = (2,2)
+(1,2) SUD-OEST = (2,1)
+(1,2) OEST = (1,1)
+(1,2) NORD-OEST = (0,1)

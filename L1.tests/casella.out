@@ -1,0 +1,5 @@
+[-]  contingut=0  visitada=false
+[B]  contingut=1  visitada=false
+[N]  contingut=-1  visitada=false
+[N]  contingut=-1  visitada=true
+[N]  contingut=-1  visitada=false

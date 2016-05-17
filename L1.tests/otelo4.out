@@ -1,0 +1,91 @@
+========== Jugador N ==========
+  1 2 3 4
+1 - ? - -
+2 ? B N -
+3 - N B ?
+4 - - ? -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 ? N ? -
+2 - N N -
+3 ? N B -
+4 - - - -
+Fila (1-4): Columna (1-4): Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B B B -
+4 ? ? ? ?
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 ? N ? -
+2 - N N -
+3 B N B -
+4 N - - -
+Fila (1-4): Columna (1-4): Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4
+1 - N B ?
+2 ? B B -
+3 B N B ?
+4 N - - -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 - N N N
+2 - B N ?
+3 B N B -
+4 N ? - -
+Fila (1-4): Columna (1-4): Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4
+1 - N N N
+2 ? B N -
+3 B B B -
+4 N B ? -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 ? N N N
+2 N N N -
+3 N B B -
+4 N B - -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador N ==========
+  1 2 3 4
+1 B N N N
+2 N B N -
+3 N B B ?
+4 N B ? -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 B N N N
+2 N B N ?
+3 N N N N
+4 N B - ?
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador N ==========
+  1 2 3 4
+1 B N N N
+2 N B N -
+3 N N B N
+4 N B ? B
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 B N N N
+2 N B N ?
+3 N N N N
+4 N N N B
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Fi partida ==========
+  1 2 3 4
+1 B N N N
+2 N B B B
+3 N N N B
+4 N N N B
+Ha guanyat el jugador N.

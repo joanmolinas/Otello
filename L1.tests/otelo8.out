@@ -1,0 +1,68 @@
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - - ? - - - -
+4 - - ? B N - - -
+5 - - - N B ? - -
+6 - - - - ? - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Error: Posició ja ocupada o moviment no vàlid.
+Fila (1-8): Columna (1-8): Error: Posició ja ocupada o moviment no vàlid.
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - ? N ? - - -
+4 - - - N N - - -
+5 - - ? N B - - -
+6 - - - - - - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - ? B N - - - -
+4 - - ? B N - - -
+5 - - - N B ? - -
+6 - - - - ? - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - B N ? - - -
+4 - - N N N - - -
+5 - - ? N B - - -
+6 - - - - - - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - ? ? ? ? ? - -
+3 - - B B B ? - -
+4 - - N N B ? - -
+5 - - - N B ? - -
+6 - - - - - ? - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): 
+========== Fi partida ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - B B B - - -
+4 - - N N B - - -
+5 - - - N B - - -
+6 - - - - - - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Ha guanyat el jugador B.
