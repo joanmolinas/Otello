@@ -14,7 +14,6 @@ taulell::taulell(nat n) {
 
   // inicialitza les 4 caselles centrals del taulell
   // si n és senar, les 4 caselles centrals queden una mica desplaçades amunt i a l'esquerra
-  //TODO:
 
   int mitat = n/2;
   taula[mitat-1][mitat-1].omple(casella::BLANCA);
@@ -41,19 +40,18 @@ casella& taulell::operator()(coord p) {
 
 //---- Escriu a la pantalla el contingut del taulell.
 void taulell::mostra() const {
-// escriu capçalera per enumerar columnes
-	for (int i = 0; i <= taula.size(); i++) {
-    cout<<" ";
+  for (int i = 0; i <= taula.size(); i++) {
     if (i != 0) cout<<i;
     else cout<<" ";
-
+    cout<<" ";
+  }
+  cout<<endl;
+  for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula.size(); j++) {
+      if (j == 0) cout<<i+1;
+      casella c = taula[i][j];
       cout<<" ";
-      if (i == 0) cout<<j+1;
-      else {
-        casella c = taula[i-1][j];
-        cout<<c.mostra();
-      }
+      cout<<c.mostra();
     }
     cout<<endl;
   }
@@ -63,10 +61,29 @@ void taulell::mostra() const {
 //---- Escriu a la pantalla el contingut del taulell marcant amb '?'
 //---- les caselles on es poden posar fitxes del color donat.
 void taulell::mostra(int color) const {
-  // escriu capçalera per enumerar columnes
-  // ????
-  // escriu contingut amb la numeració de fila al principi
-  // ????
+
+  queue<coord> coordenades = coord_pot_jugar(color);
+
+  for (int i = 0; i <= taula.size(); i++) {
+    if (i != 0) cout<<i;
+    else cout<<" ";
+    cout<<" ";
+  }
+  cout<<endl;
+  for (int i = 0; i < taula.size(); i++) {
+    for (int j = 0; j < taula.size(); j++) {
+      if (j == 0) cout<<i+1;
+      casella c = taula[i][j];
+      cout<<" ";
+      if( coord(i,j) == coordenades.front()) {
+        cout<<"?";
+        coordenades.pop();
+      } else {
+        cout<<c.mostra();
+      }
+    }
+    cout<<endl;
+  }
 }
 
 
@@ -77,8 +94,8 @@ int taulell::avalua() const {
   for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula[i].size(); j++) {
       casella c = taula[i][j];
-      if (c.valor() == 1) blanques++;
-      else if(c.valor() == -1) negres++;
+      if (c.valor() == casella::BLANCA) blanques++;
+      else if(c.valor() == casella::NEGRA) negres++;
     }
   }
   return blanques - negres;
@@ -89,7 +106,25 @@ int taulell::avalua() const {
 //---- varies fitxes de l'adversari (al final hem de trobar el color donat).
 //---- Retorna: girar (si es pot girar o no), c (coordenada final on s'ha trobat el color donat)
 void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord &c) const {
-  // ????
+  bool colocable;
+  coord coord_final;
+  //Mirar si la següent es del mateix color.
+  cini = cini+d.despl();
+  casella cas = taula[cini.x][cini.y];
+  if (cas.valor() != casella::LLIURE && cas.valor() != color) {
+    //Mirar si al abans d'arribar al límit s'ha trobat una altre
+    //del mateix color que la que volem.
+    while (dins_limits(cini) && !colocable) {
+      cini = cini+d.despl();
+      cas = taula[cini.x][cini.y];
+      if (cas.valor() == color) {
+        colocable = true;
+        coord_final = cini;
+      }
+    }
+  }
+  c = coord_final;
+  girar = colocable;
 }
 
 
@@ -97,7 +132,17 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
 //---- Cal comprovar si en una de les 8 direccions es poden girar fitxes
 //---- de l'adversari (de color diferent al color donat).
 bool taulell::mov_possible(coord c, int color) const {
+  casella cas = taula[c.x][c.y];
+  if (cas.valor() != casella::LLIURE) {
+    return false;
+  }
+
   bool possible;
+
+  //Per testejar que les col·loqui bé.
+  if (c == coord(2,3) || c == coord(3,2) || c == coord(4,5) || c == coord(5,4)) {
+    possible = true;
+  }
 
   return possible;
 }
@@ -115,14 +160,13 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
   queue<coord> coordenades;
   for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula.size(); j++) {
-      casella c = taula[i][j];
       coord cord = coord(i,j);
-      if (c.valor() == casella::LLIURE && mov_possible(cord,color)) {
+      if (mov_possible(cord,color)) {
         coordenades.push(cord);
       }
+
     }
   }
-
   return coordenades;
 }
 
