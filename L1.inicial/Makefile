@@ -42,7 +42,7 @@ test_casella:
 test_taulell:
 	@echo "--------------------------------------------------"
 	./proves_taulell
-	#| diff - $(TEST)/taulell.out;
+	#| diff - $(TEST)/taulell_1.out;
 
 test_otelo:
 	@echo "--------------------------------------------------"

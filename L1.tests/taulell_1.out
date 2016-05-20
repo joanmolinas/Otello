@@ -1,0 +1,41 @@
+1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - - - - - - -
+4 - - - B N - - -
+5 - - - N B - - -
+6 - - - - - - - -
+7 - - - - - - - -
+8 - - - - - - - -
+
+============== BLANCA ==============
+Es pot posar una fitxa a (6,3): false
+Des de (6,3) en la direcció NORD no es poden girar fitxes de l'adversari.
+
+============== NEGRA ===============
+Es pot posar una fitxa a (6,3): false
+Des de (6,3) en la direcció NORD no es poden girar fitxes de l'adversari.
+
+============== BLANCA ==============
+Es pot posar una fitxa a (6,4): true
+Des de (6,4) en la direcció NORD es poden girar fitxes de l'adversari arribant a (4,4).
+
+============== NEGRA ===============
+Es pot posar una fitxa a (6,4): false
+Des de (6,4) en la direcció NORD no es poden girar fitxes de l'adversari.
+
+============== BLANCA ==============
+Es pot posar una fitxa a (6,5): false
+Des de (6,5) en la direcció NORD no es poden girar fitxes de l'adversari.
+
+============== NEGRA ===============
+Es pot posar una fitxa a (6,5): true
+Des de (6,5) en la direcció NORD es poden girar fitxes de l'adversari arribant a (4,5).
+
+============== BLANCA ==============
+Es pot posar una fitxa a (6,6): true
+Des de (6,6) en la direcció NORD-OEST es poden girar fitxes de l'adversari arribant a (4,4).
+
+============== NEGRA ===============
+Es pot posar una fitxa a (6,6): false
+Des de (6,6) en la direcció NORD no es poden girar fitxes de l'adversari.

@@ -26,8 +26,8 @@ taulell::taulell(nat n) {
 
 //---- Diu si les coord p estan dins dels limits del taulell.
 bool taulell::dins_limits(coord p) const {
-  bool dins_x = p.x >= 0 || p.x < taula.size();
-  bool dins_y = p.y >= 0 || p.y < taula.size();
+  bool dins_x = p.x >= 0 && p.x < taula.size();
+  bool dins_y = p.y >= 0 && p.y < taula.size();
   return dins_x && dins_y;
 }
 
@@ -41,9 +41,8 @@ casella& taulell::operator()(coord p) {
 //---- Escriu a la pantalla el contingut del taulell.
 void taulell::mostra() const {
   for (int i = 0; i <= taula.size(); i++) {
-    if (i != 0) cout<<i;
+    if (i != 0) cout<<" "<<i;
     else cout<<" ";
-    cout<<" ";
   }
   cout<<endl;
   for (int i = 0; i < taula.size(); i++) {
@@ -63,6 +62,11 @@ void taulell::mostra() const {
 void taulell::mostra(int color) const {
 
   queue<coord> coordenades = coord_pot_jugar(color);
+  cout<<coordenades.size()<<endl;
+  if (coordenades.size() == 0) {
+    mostra();
+    return;
+  }
 
   for (int i = 0; i <= taula.size(); i++) {
     if (i != 0) cout<<i;
@@ -90,9 +94,9 @@ void taulell::mostra(int color) const {
 //---- Avalua les fitxes del taulell:
 //---- num_caselles_blanques - num_caselles_negres.
 int taulell::avalua() const {
-  int blanques, negres;
+  int blanques = 0, negres = 0;
   for (int i = 0; i < taula.size(); i++) {
-    for (int j = 0; j < taula[i].size(); j++) {
+    for (int j = 0; j < taula.size(); j++) {
       casella c = taula[i][j];
       if (c.valor() == casella::BLANCA) blanques++;
       else if(c.valor() == casella::NEGRA) negres++;
@@ -106,20 +110,31 @@ int taulell::avalua() const {
 //---- varies fitxes de l'adversari (al final hem de trobar el color donat).
 //---- Retorna: girar (si es pot girar o no), c (coordenada final on s'ha trobat el color donat)
 void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord &c) const {
-  bool colocable;
+  bool colocable, acabat;
   coord coord_final;
-  //Mirar si la següent es del mateix color.
+  // cout<<"("<<cini.x<<" "<<cini.y<<")";
   cini = cini+d.despl();
+  if (!dins_limits(cini)) {
+    return;
+  }
+  //
+  //Mirar si la següent es del mateix color.
+  //
   casella cas = taula[cini.x][cini.y];
+
   if (cas.valor() != casella::LLIURE && cas.valor() != color) {
-    //Mirar si al abans d'arribar al límit s'ha trobat una altre
-    //del mateix color que la que volem.
-    while (dins_limits(cini) && !colocable) {
+    while(!acabat && !colocable) {
       cini = cini+d.despl();
-      cas = taula[cini.x][cini.y];
-      if (cas.valor() == color) {
-        colocable = true;
-        coord_final = cini;
+      if (dins_limits(cini)) {
+        cas = taula[cini.x][cini.y];
+        if (cas.valor() == color) {
+          colocable = true;
+          coord_final = cini + coord(1,1);
+        } else if(cas.valor() == casella::LLIURE) {
+          acabat = true;
+        }
+      } else {
+        acabat = true;
       }
     }
   }
@@ -139,9 +154,20 @@ bool taulell::mov_possible(coord c, int color) const {
 
   bool possible;
 
-  //Per testejar que les col·loqui bé.
-  if (c == coord(2,3) || c == coord(3,2) || c == coord(4,5) || c == coord(5,4)) {
-    possible = true;
+  // Per testejar que les col·loqui bé.
+  // if (c == coord(2,3) || c == coord(3,2) || c == coord(4,5) || c == coord(5,4)) {
+  //   possible = true;
+  // }
+  direccio d;
+  coord final;
+  while (!d.is_stop() && !possible) {
+    es_pot_girar(c, d, color, possible, final);
+    if (!possible) {
+      ++d;
+    }
+    // else {
+    //   cout<<"colocable "<<c.x<<" "<<c.y<<endl;
+    // }
   }
 
   return possible;
@@ -164,7 +190,6 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
       if (mov_possible(cord,color)) {
         coordenades.push(cord);
       }
-
     }
   }
   return coordenades;
@@ -173,7 +198,7 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //---- Canvia el color de les caselles des de la casella ci
 //---- fins a la casella cf en la direcció d.
 void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
-  casella inicial = taula[ci.x][ci.y];
+  casella inicial;
   casella final = taula[cf.x][cf.y];
   while (!(ci == cf)) {
     ci = ci+d.despl();

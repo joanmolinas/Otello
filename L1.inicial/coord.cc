@@ -47,5 +47,5 @@ string coord::mostra1() const {
   coord c(x,y);
   coord c1 = coord(1,1);
   c = c + c1;
-  return c1.mostra();
+  return c.mostra();
 }

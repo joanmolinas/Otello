@@ -24,9 +24,9 @@ Des de (6,3) en la direcció NORD no es poden girar fitxes de l'adversari.
 El valor del taulell és: 0
 Blanques i negres empaten.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (4,6) (5,3) (6,4) 
+a les caselles: (3,5) (4,6) (5,3) (6,4)
 Les NEGRES poden jugar: true
-a les caselles: (3,4) (4,3) (5,6) (6,5) 
+a les caselles: (3,4) (4,3) (5,6) (6,5)
 
 ============== NEGRA ===============
 Es pot posar una fitxa a (6,3): false
@@ -44,9 +44,9 @@ Des de (6,3) en la direcció NORD no es poden girar fitxes de l'adversari.
 El valor del taulell és: 0
 Blanques i negres empaten.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (4,6) (5,3) (6,4) 
+a les caselles: (3,5) (4,6) (5,3) (6,4)
 Les NEGRES poden jugar: true
-a les caselles: (3,4) (4,3) (5,6) (6,5) 
+a les caselles: (3,4) (4,3) (5,6) (6,5)
 
 ============== BLANCA ==============
 Es pot posar una fitxa a (6,4): true
@@ -64,9 +64,9 @@ Des de (6,4) en la direcció NORD es poden girar fitxes de l'adversari arribant 
 El valor del taulell és: 3
 Guanyen les blanques.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (3,6) (4,6) 
+a les caselles: (3,5) (3,6) (4,6)
 Les NEGRES poden jugar: true
-a les caselles: (4,3) (6,3) (6,5) 
+a les caselles: (4,3) (6,3) (6,5)
 
 ============== NEGRA ===============
 Es pot posar una fitxa a (6,4): false
@@ -84,9 +84,9 @@ Des de (6,4) en la direcció NORD no es poden girar fitxes de l'adversari.
 El valor del taulell és: 3
 Guanyen les blanques.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (3,6) (4,6) 
+a les caselles: (3,5) (3,6) (4,6)
 Les NEGRES poden jugar: true
-a les caselles: (4,3) (6,3) (6,5) 
+a les caselles: (4,3) (6,3) (6,5)
 
 ============== BLANCA ==============
 Es pot posar una fitxa a (6,5): false
@@ -104,9 +104,9 @@ Des de (6,5) en la direcció NORD no es poden girar fitxes de l'adversari.
 El valor del taulell és: 3
 Guanyen les blanques.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (3,6) (4,6) 
+a les caselles: (3,5) (3,6) (4,6)
 Les NEGRES poden jugar: true
-a les caselles: (4,3) (6,3) (6,5) 
+a les caselles: (4,3) (6,3) (6,5)
 
 ============== NEGRA ===============
 Es pot posar una fitxa a (6,5): true
@@ -124,9 +124,9 @@ Des de (6,5) en la direcció NORD es poden girar fitxes de l'adversari arribant 
 El valor del taulell és: 0
 Blanques i negres empaten.
 Les BLANQUES poden jugar: true
-a les caselles: (3,6) (4,6) (5,6) (6,6) (7,6) 
+a les caselles: (3,6) (4,6) (5,6) (6,6) (7,6)
 Les NEGRES poden jugar: true
-a les caselles: (3,3) (4,3) (5,3) (6,3) (7,3) 
+a les caselles: (3,3) (4,3) (5,3) (6,3) (7,3)
 
 ============== BLANCA ==============
 Es pot posar una fitxa a (6,6): true
@@ -144,9 +144,9 @@ Des de (6,6) en la direcció NORD-OEST es poden girar fitxes de l'adversari arri
 El valor del taulell és: 3
 Guanyen les blanques.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (3,6) (4,6) (7,5) (7,6) 
+a les caselles: (3,5) (3,6) (4,6) (7,5) (7,6)
 Les NEGRES poden jugar: true
-a les caselles: (4,3) (6,3) (6,7) 
+a les caselles: (4,3) (6,3) (6,7)
 
 ============== NEGRA ===============
 Es pot posar una fitxa a (6,6): false
@@ -164,6 +164,6 @@ Des de (6,6) en la direcció NORD no es poden girar fitxes de l'adversari.
 El valor del taulell és: 3
 Guanyen les blanques.
 Les BLANQUES poden jugar: true
-a les caselles: (3,5) (3,6) (4,6) (7,5) (7,6) 
+a les caselles: (3,5) (3,6) (4,6) (7,5) (7,6)
 Les NEGRES poden jugar: true
-a les caselles: (4,3) (6,3) (6,7) 
+a les caselles: (4,3) (6,3) (6,7)

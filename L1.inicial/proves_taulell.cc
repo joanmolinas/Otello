@@ -4,19 +4,20 @@
 using namespace std;
 
 void jugada(taulell &t, coord ci, direccio d, int color) {
+
   if (color==casella::BLANCA)
     cout << endl<<"============== BLANCA =============="<<endl;
   else
     cout << endl<<"============== NEGRA ==============="<<endl;
-
   /// Comprovem si es pot posar una fitxa de color a la coordena c
   cout<<"Es pot posar una fitxa a "<<ci.mostra1()<<": "<<boolalpha<<t.mov_possible(ci, color)<<endl;
-
   /// Comprovem si es pot girar desde la coordenada ci en la direcció d vàries fitxes de l'adversari
+
   coord cf;
   bool girar;
   t.es_pot_girar(ci, d, color, girar, cf);
   cout<<"Des de "<<ci.mostra1()<<" en la direcció "<<d.mostra();
+
   if (girar)
     cout<<" es poden girar fitxes de l'adversari arribant a "<<cf.mostra()<<"."<<endl;
   else
@@ -25,10 +26,10 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   /// Si es pot girar, posem la fitxa i canviem el color de les caselles
   /// des de la casella ci fins a la casella cf en la direcció d
   if (girar) {
-    // ????
+    t.posa_fitxa(ci, color);
   }
-
   /// Dibuixem el taulell amb les caselles on pot tirar el contrincant
+
   t.mostra(-1*color);
   cout<<endl;
 
@@ -47,11 +48,15 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   cout<<"Les BLANQUES poden jugar: "<<t.pot_jugar(casella::BLANCA)<<endl;
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::BLANCA);
-  while (not true) {
+
+
+  while (not caselles.empty()) {
     cout << caselles.front().mostra1() << " ";
-    // ????;
-    break;
+    caselles.pop();
   }
+
+  return;
+
   cout<<endl;
   cout<<"Les NEGRES poden jugar: "<<t.pot_jugar(casella::NEGRA)<<endl;
   cout<<"a les caselles: ";
