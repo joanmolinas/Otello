@@ -62,16 +62,14 @@ void taulell::mostra() const {
 void taulell::mostra(int color) const {
 
   queue<coord> coordenades = coord_pot_jugar(color);
-  cout<<coordenades.size()<<endl;
   if (coordenades.size() == 0) {
     mostra();
     return;
   }
 
   for (int i = 0; i <= taula.size(); i++) {
-    if (i != 0) cout<<i;
+    if (i != 0) cout<<" "<<i;
     else cout<<" ";
-    cout<<" ";
   }
   cout<<endl;
   for (int i = 0; i < taula.size(); i++) {
@@ -110,16 +108,12 @@ int taulell::avalua() const {
 //---- varies fitxes de l'adversari (al final hem de trobar el color donat).
 //---- Retorna: girar (si es pot girar o no), c (coordenada final on s'ha trobat el color donat)
 void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord &c) const {
-  bool colocable, acabat;
+  bool colocable = false, acabat = false;
   coord coord_final;
-  // cout<<"("<<cini.x<<" "<<cini.y<<")";
   cini = cini+d.despl();
   if (!dins_limits(cini)) {
     return;
   }
-  //
-  //Mirar si la següent es del mateix color.
-  //
   casella cas = taula[cini.x][cini.y];
 
   if (cas.valor() != casella::LLIURE && cas.valor() != color) {
@@ -129,7 +123,7 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
         cas = taula[cini.x][cini.y];
         if (cas.valor() == color) {
           colocable = true;
-          coord_final = cini + coord(1,1);
+          coord_final = cini;
         } else if(cas.valor() == casella::LLIURE) {
           acabat = true;
         }
@@ -151,13 +145,7 @@ bool taulell::mov_possible(coord c, int color) const {
   if (cas.valor() != casella::LLIURE) {
     return false;
   }
-
   bool possible;
-
-  // Per testejar que les col·loqui bé.
-  // if (c == coord(2,3) || c == coord(3,2) || c == coord(4,5) || c == coord(5,4)) {
-  //   possible = true;
-  // }
   direccio d;
   coord final;
   while (!d.is_stop() && !possible) {
@@ -165,19 +153,30 @@ bool taulell::mov_possible(coord c, int color) const {
     if (!possible) {
       ++d;
     }
-    // else {
-    //   cout<<"colocable "<<c.x<<" "<<c.y<<endl;
-    // }
   }
-
   return possible;
 }
 
 
 //---- Comprova si el color pot jugar (la fitxa de color es pot col·locar en algun lloc).
 bool taulell::pot_jugar(int color) const {
-  // ????
-  return false;
+  int i = 0, j = 0;
+  bool colocable;
+  // coord cord = coord(i,j);
+  for (int i = 0; i < taula.size(); i++) {
+    for (int j = 0; j < taula.size(); j++) {
+      coord cord = coord(i,j);
+      if (!dins_limits(cord)) {
+        break;
+      }
+      if (mov_possible(cord, color)) {
+        colocable = true;
+        break;
+      }
+    }
+  }
+
+  return colocable;
 }
 
 //---- Retorna una cua amb les coordenades a on el color pot jugar.
@@ -187,8 +186,10 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
   for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula.size(); j++) {
       coord cord = coord(i,j);
-      if (mov_possible(cord,color)) {
-        coordenades.push(cord);
+      bool pos = mov_possible(cord, color);
+      cout<<"";
+      if (pos) {
+          coordenades.push(cord);
       }
     }
   }
@@ -198,31 +199,29 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //---- Canvia el color de les caselles des de la casella ci
 //---- fins a la casella cf en la direcció d.
 void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
-  casella inicial;
-  casella final = taula[cf.x][cf.y];
+  ci = ci+d.despl();
   while (!(ci == cf)) {
-    ci = ci+d.despl();
-    inicial = taula[ci.x][ci.y];
-    int color_a_canviar = (inicial.valor() == casella::NEGRA) ? casella::BLANCA : casella::NEGRA;
-    inicial.omple(color_a_canviar);
+    casella cas = taula[ci.x][ci.y];
+    cas.omple(-1*cas.valor());
+    taula[ci.x][ci.y] = cas;
+    ci = ci + d.despl();
   }
 }
 
 
 //---- Col·loca la fitxa de color a la coordena c i gira les fitxes necessàries segons regles d'Otelo
 void taulell::posa_fitxa(coord c, int color) {
-  casella cas = taula[c.x][c.y];
-  cas.omple(color);
+  taula[c.x][c.y].omple(color);
 
-  //Girar.
-  coord cfin;
-  bool girable;
-  direccio d;
-  while (!d.is_stop()) {
-    ++d;
-    es_pot_girar(c, d, color, girable, cfin);
-    if (girable) {
-      gira_fitxes(c, cfin, d);
-    }
-  }
+  // //Girar.
+  // coord cfin;
+  // bool girable;
+  // direccio d;
+  // while (!d.is_stop()) {
+  //   es_pot_girar(c, d, color, girable, cfin);
+  //   if (girable) {
+  //     gira_fitxes(c, cfin, d);
+  //   }
+  //   ++d;
+  // }
 }

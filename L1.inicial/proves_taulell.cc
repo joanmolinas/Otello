@@ -19,7 +19,7 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   cout<<"Des de "<<ci.mostra1()<<" en la direcció "<<d.mostra();
 
   if (girar)
-    cout<<" es poden girar fitxes de l'adversari arribant a "<<cf.mostra()<<"."<<endl;
+    cout<<" es poden girar fitxes de l'adversari arribant a "<<cf.mostra1()<<"."<<endl;
   else
     cout<<" no es poden girar fitxes de l'adversari."<<endl;
 
@@ -27,6 +27,8 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   /// des de la casella ci fins a la casella cf en la direcció d
   if (girar) {
     t.posa_fitxa(ci, color);
+    t.gira_fitxes(ci, cf, d);
+    // cout<<ci.mostra1()<<" "<<cf.mostra1()<<" "<<d.mostra()<<endl;
   }
   /// Dibuixem el taulell amb les caselles on pot tirar el contrincant
 
@@ -48,27 +50,25 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   cout<<"Les BLANQUES poden jugar: "<<t.pot_jugar(casella::BLANCA)<<endl;
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::BLANCA);
-
-
   while (not caselles.empty()) {
-    cout << caselles.front().mostra1() << " ";
+    cout <<caselles.front().mostra1();
+    if (caselles.size() > 1) cout<<" ";
     caselles.pop();
   }
 
-  return;
 
   cout<<endl;
   cout<<"Les NEGRES poden jugar: "<<t.pot_jugar(casella::NEGRA)<<endl;
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::NEGRA);
-  while (not true) {
-    cout << caselles.front().mostra1() << " ";
-    // ????;
-    break;
+  while (not caselles.empty()) {
+    cout <<caselles.front().mostra1();
+    if (caselles.size() > 1) cout<<" ";
+    caselles.pop();
   }
   cout<<endl;
+  return;
 }
-
 
 int main() {
   /// Creem un taulell 8x8
