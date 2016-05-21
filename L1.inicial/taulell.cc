@@ -44,7 +44,9 @@ void taulell::mostra() const {
     if (i != 0) cout<<" "<<i;
     else cout<<" ";
   }
+
   cout<<endl;
+
   for (int i = 0; i < taula.size(); i++) {
     for (int j = 0; j < taula.size(); j++) {
       if (j == 0) cout<<i+1;
@@ -111,9 +113,9 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
   bool colocable = false, acabat = false;
   coord coord_final;
   cini = cini+d.despl();
-  if (!dins_limits(cini)) {
-    return;
-  }
+
+  if (!dins_limits(cini)) return;
+
   casella cas = taula[cini.x][cini.y];
 
   if (cas.valor() != casella::LLIURE && cas.valor() != color) {
@@ -142,9 +144,9 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
 //---- de l'adversari (de color diferent al color donat).
 bool taulell::mov_possible(coord c, int color) const {
   casella cas = taula[c.x][c.y];
-  if (cas.valor() != casella::LLIURE) {
-    return false;
-  }
+
+  if (cas.valor() != casella::LLIURE) return false;
+
   bool possible;
   direccio d;
   coord final;
@@ -160,21 +162,31 @@ bool taulell::mov_possible(coord c, int color) const {
 
 //---- Comprova si el color pot jugar (la fitxa de color es pot col·locar en algun lloc).
 bool taulell::pot_jugar(int color) const {
-  int i = 0, j = 0;
+  int i = 0, j;
   bool colocable;
-  // coord cord = coord(i,j);
-  for (int i = 0; i < taula.size(); i++) {
-    for (int j = 0; j < taula.size(); j++) {
-      coord cord = coord(i,j);
-      if (!dins_limits(cord)) {
-        break;
+
+  // for (int i = 0; i < taula.size(); i++) {
+  //   for (int j = 0; j < taula.size(); j++) {
+  //     coord cord = coord(i,j);
+  //     if (!dins_limits(cord)) {
+  //       break;
+  //     }
+  //     if (mov_possible(cord, color)) {
+  //       colocable = true;
+  //       break;
+  //     }
+  //   }
+  // }
+
+    while (i < taula.size() && !colocable) {
+      j = 0;
+      while(j < taula.size() && !colocable) {
+        coord cord = coord(i,j);
+        if (mov_possible(cord, color)) colocable = true;
+        j++;
       }
-      if (mov_possible(cord, color)) {
-        colocable = true;
-        break;
-      }
+      i++;
     }
-  }
 
   return colocable;
 }
