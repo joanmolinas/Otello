@@ -9,6 +9,9 @@
 //---- amb les fitxes inicials d'una partida de Reversi.
 //---- Pre: n >=2
 taulell::taulell(nat n) {
+//PRE: Entra un natural n.
+//POST:Es crea un taulle de n x n i sestableixen les 
+//fitxes inicials a partir del tamany del tauler.
     // crea taula de mida n x n
     
     taula = vector<vector<casella> >(n,vector<casella>(n,casella()));
@@ -26,6 +29,8 @@ taulell::taulell(nat n) {
 
 //---- Diu si les coord p estan dins dels limits del taulell.
 bool taulell::dins_limits(coord p) const {
+//PRE: Entra una coordenada.
+//POST: Retorna si la coordenada es dins del taulell o no.
     bool dins_x = p.x >= 0 && p.x < taula.size();
     bool dins_y = p.y >= 0 && p.y < taula.size();
     return dins_x && dins_y;
@@ -34,12 +39,16 @@ bool taulell::dins_limits(coord p) const {
 
 //---- Accedeix a la casella de la coord p del taulell.
 casella& taulell::operator()(coord p) {
+//PRE: Entra una coordenada.
+//POST: Retorna el valor de la casella que estava a la coordenada.
     return taula[p.x][p.y];
 }
 
 
 //---- Escriu a la pantalla el contingut del taulell.
 void taulell::mostra() const {
+//PRE: Cert.
+//POST: Mostra per pantalla el contingut del tauler.
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
         else cout<<" ";
@@ -62,7 +71,9 @@ void taulell::mostra() const {
 //---- Escriu a la pantalla el contingut del taulell marcant amb '?'
 //---- les caselles on es poden posar fitxes del color donat.
 void taulell::mostra(int color) const {
-
+//PRE: Entra un color per referencia.
+//POST: Mostra per pantalla un interrogant en qualsevol posicio si 
+// en la posició es pot posar una fitxa del color donat.
     queue<coord> coordenades = coord_pot_jugar(color);
     if (coordenades.size() == 0) {
         mostra();
@@ -93,6 +104,9 @@ void taulell::mostra(int color) const {
 //---- Avalua les fitxes del taulell:
 //---- num_caselles_blanques - num_caselles_negres.
 int taulell::avalua() const {
+//PRE: Cert.
+//POST: Llegeix totes les fitxes del tauler i retorna la resta 
+// de caselles blanques amb les negres.
     int blanques = 0, negres = 0;
     for (int i = 0; i < taula.size(); i++) {
         for (int j = 0; j < taula.size(); j++) {
@@ -109,6 +123,8 @@ int taulell::avalua() const {
 //---- varies fitxes de l'adversari (al final hem de trobar el color donat).
 //---- Retorna: girar (si es pot girar o no), c (coordenada final on s'ha trobat el color donat)
 void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord &c) const {
+//PRE: Entran la coordenada inicial, direccio i color.
+//POST: Es retorna a girar si es pot girar la fitxa i a c la coordenada final.
     bool colocable = false, acabat = false;
     coord coord_final;
     cini = cini+d.despl();
@@ -140,6 +156,8 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
 //---- Cal comprovar si en una de les 8 direccions es poden girar fitxes
 //---- de l'adversari (de color diferent al color donat).
 bool taulell::mov_possible(coord c, int color) const {
+//PRE: Entran una coordenada i un color.
+//POST: Retorna si es pot colocar la fitxa de color a la coordenada.
     casella cas = taula[c.x][c.y];
 
     if (cas.valor() != casella::LLIURE) return false;
@@ -157,6 +175,8 @@ bool taulell::mov_possible(coord c, int color) const {
 
 //---- Comprova si el color pot jugar (la fitxa de color es pot col·locar en algun lloc).
 bool taulell::pot_jugar(int color) const {
+//PRE: Entra un color.
+//POST: Retorna si aquest color te algun moviment possible per saber si pot jugar.
     int i = 0, j;
     bool colocable;
 
@@ -188,6 +208,8 @@ bool taulell::pot_jugar(int color) const {
 //---- Retorna una cua amb les coordenades a on el color pot jugar.
 //---- S'encuen per fila creixent, i per la mateixa fila per columna creixent.
 queue<coord> taulell::coord_pot_jugar(int color) const {
+//PRE:  Entra un color.
+//POST: Retorna una cua de coordenades la qual conte les coordenades on el jugador del color que ha entrat pot jugar.
     queue<coord> coordenades;
     for (int i = 0; i < taula.size(); i++) {
         for (int j = 0; j < taula.size(); j++) {
@@ -203,6 +225,8 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //---- Canvia el color de les caselles des de la casella ci
 //---- fins a la casella cf en la direcció d.
 void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
+//PRE: Entran la coordenada inicial, la final i la direcció.
+//POST: Gira totes les fitxes (les canvia de color) des de coordenada inicial fins a la final seguint la direcció.
     ci = ci+d.despl();
     while (!(ci == cf)) {
         casella cas = taula[ci.x][ci.y];
@@ -215,6 +239,8 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 
 //---- Col·loca la fitxa de color a la coordena c i gira les fitxes necessàries segons regles d'Otelo
 void taulell::posa_fitxa(coord c, int color) {
+//PRE: Entra una coordenada i un color.
+//POST: Coloca la fitxa del color a la coordenada.
     taula[c.x][c.y].omple(color);
 
 // //Girar.
