@@ -165,19 +165,6 @@ bool taulell::pot_jugar(int color) const {
   int i = 0, j;
   bool colocable;
 
-  // for (int i = 0; i < taula.size(); i++) {
-  //   for (int j = 0; j < taula.size(); j++) {
-  //     coord cord = coord(i,j);
-  //     if (!dins_limits(cord)) {
-  //       break;
-  //     }
-  //     if (mov_possible(cord, color)) {
-  //       colocable = true;
-  //       break;
-  //     }
-  //   }
-  // }
-
     while (i < taula.size() && !colocable) {
       j = 0;
       while(j < taula.size() && !colocable) {
@@ -225,15 +212,4 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 void taulell::posa_fitxa(coord c, int color) {
   taula[c.x][c.y].omple(color);
 
-  // //Girar.
-  // coord cfin;
-  // bool girable;
-  // direccio d;
-  // while (!d.is_stop()) {
-  //   es_pot_girar(c, d, color, girable, cfin);
-  //   if (girable) {
-  //     gira_fitxes(c, cfin, d);
-  //   }
-  //   ++d;
-  // }
 }
