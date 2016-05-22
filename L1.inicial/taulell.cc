@@ -49,14 +49,16 @@ casella& taulell::operator()(coord p) {
 void taulell::mostra() const {
 //PRE: Cert.
 //POST: Mostra per pantalla el contingut del tauler.
+    //INV: mostra el número entre 1 i el tamany de la taula
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
         else cout<<" ";
     }
 
     cout<<endl;
-
+    //INV: i < taula.size()
     for (int i = 0; i < taula.size(); i++) {
+      //INV: j < taula.size() i mostra el valor de la casella
         for (int j = 0; j < taula.size(); j++) {
             if (j == 0) cout<<i+1;
             casella c = taula[i][j];
@@ -79,13 +81,15 @@ void taulell::mostra(int color) const {
         mostra();
         return;
     }
-
+    //INV: mostra el número entre 1 i el tamany de la taula
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
         else cout<<" ";
     }
     cout<<endl;
+    //INV: i < taula.size()
     for (int i = 0; i < taula.size(); i++) {
+        //INV: j < taula.size() i mostra el valor de la casella o un ? si pot realitzar algun moviment.
         for (int j = 0; j < taula.size(); j++) {
             if (j == 0) cout<<i+1;
             casella c = taula[i][j];
