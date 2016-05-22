@@ -49,16 +49,16 @@ casella& taulell::operator()(coord p) {
 void taulell::mostra() const {
 //PRE: Cert.
 //POST: Mostra per pantalla el contingut del tauler.
-    //INV: mostra el número entre 1 i el tamany de la taula
+    //INV: Desde la primera iteracio a la ultima s'imprimira i per pantalla excepte en i=0.
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
         else cout<<" ";
     }
 
     cout<<endl;
-    //INV: i < taula.size()
+    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
     for (int i = 0; i < taula.size(); i++) {
-      //INV: j < taula.size() i mostra el valor de la casella
+        //INV: A cada iteració es mostra el valor de la casella [i][j].
         for (int j = 0; j < taula.size(); j++) {
             if (j == 0) cout<<i+1;
             casella c = taula[i][j];
@@ -81,15 +81,15 @@ void taulell::mostra(int color) const {
         mostra();
         return;
     }
-    //INV: mostra el número entre 1 i el tamany de la taula
+    //INV: A cada iteracio mostra el número entre 1 i el tamany de la taula.
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
         else cout<<" ";
     }
     cout<<endl;
-    //INV: i < taula.size()
+    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
     for (int i = 0; i < taula.size(); i++) {
-        //INV: j < taula.size() i mostra el valor de la casella o un ? si pot realitzar algun moviment.
+        //INV: A cada iteració es mostra el valor de la casella si es B, N o ? si esta a la cua..
         for (int j = 0; j < taula.size(); j++) {
             if (j == 0) cout<<i+1;
             casella c = taula[i][j];
@@ -113,7 +113,9 @@ int taulell::avalua() const {
 //POST: Llegeix totes les fitxes del tauler i retorna la resta
 // de caselles blanques amb les negres.
     int blanques = 0, negres = 0;
+    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
     for (int i = 0; i < taula.size(); i++) {
+        //INV: A cada iteracio es conta si la casella actual de la taula es blanca o negra.
         for (int j = 0; j < taula.size(); j++) {
             casella c = taula[i][j];
             if (c.valor() == casella::BLANCA) blanques++;
@@ -139,6 +141,7 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
     casella cas = taula[cini.x][cini.y];
 
     if (cas.valor() != casella::LLIURE && cas.valor() != color) {
+        //INV: A cada iteracio es mira si es pot girar una peça fins que una no es pot girar i para el bucle.
         while(!acabat && !colocable) {
             cini = cini+d.despl();
             if (dins_limits(cini)) {
@@ -170,6 +173,7 @@ bool taulell::mov_possible(coord c, int color) const {
     bool possible;
     direccio d;
     coord final;
+    //INV: A cada iteracio es mira si una casella es pot girar fins que no es possible o sacaven.
     while (!d.is_stop() && !possible) {
         es_pot_girar(c, d, color, possible, final);
         if (!possible) ++d;
@@ -185,8 +189,10 @@ bool taulell::pot_jugar(int color) const {
     int i = 0, j;
     bool colocable;
 
+    //INV: A cada iteració hi ha un while, desde i=0 fins a i< el tamany de la taula.
     while (i < taula.size() && !colocable) {
         j = 0;
+        //INV: A cada iteracio es mira si hi ha un moviment possible o no.
         while(j < taula.size() && !colocable) {
             coord cord = coord(i,j);
             if (mov_possible(cord, color)) colocable = true;
@@ -203,11 +209,12 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //PRE:  Entra un color.
 //POST: Retorna una cua de coordenades la qual conte les coordenades on el jugador del color que ha entrat pot jugar.
     queue<coord> coordenades;
+    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
     for (int i = 0; i < taula.size(); i++) {
+        //INV: A cada iteració desde j=0 fins a j< al tamany de la taula es mira si hi ha algun moviment possible.
         for (int j = 0; j < taula.size(); j++) {
             coord cord = coord(i,j);
             bool pos = mov_possible(cord, color);
-            cout<<"";
             if (pos) coordenades.push(cord);
         }
     }
@@ -220,6 +227,7 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 //PRE: Entran la coordenada inicial, la final i la direcció.
 //POST: Gira totes les fitxes (les canvia de color) des de coordenada inicial fins a la final seguint la direcció.
     ci = ci+d.despl();
+    //INV: mentre la coordenada inicial i la final no siguin iguals, somplen les caselles desde la inicial fins la final seguint una direcció.
     while (!(ci == cf)) {
         casella cas = taula[ci.x][ci.y];
         cas.omple(-1*cas.valor());
