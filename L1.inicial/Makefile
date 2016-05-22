@@ -1,7 +1,8 @@
+TEST=../L1.tests
 
-TEST=/home/salva/Otello/L1.tests
+all: util proves_coord proves_direccio proves_casella proves_taulell
 
-all: proves_coord proves_direccio proves_casella proves_taulell otelo
+#proves_taulell otelo
 
 util: util.cc util.h
 	g++ -c util.cc; \
@@ -18,11 +19,11 @@ proves_casella: casella.h casella.cc proves_casella.cc
 proves_taulell: util.h coord.h direccio.h casella.h taulell.h taulell.cc proves_taulell.cc
 	g++ -o proves_taulell proves_taulell.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
 
-otelo: util.h coord.h direccio.h casella.h taulell.h taulell.cc otelo.cc
-	g++ -o otelo otelo.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
-
+# otelo: util.h coord.h direccio.h casella.h taulell.h taulell.cc otelo.cc
+# 	g++ -o otelo otelo.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
+#
 clean:
-	rm -f *.o proves_direccio proves_coord proves_casella proves_taulell otelo
+	rm -f *.o proves_coord proves_direccio proves_casella proves_taulell otelo
 
 test_coord:
 	@echo "--------------------------------------------------"
@@ -36,7 +37,7 @@ test_direccio:
 
 test_casella:
 	@echo "--------------------------------------------------"
-	./proves_casella | diff - $(TEST)/casella.out; 
+	./proves_casella | diff - $(TEST)/casella.out;
 
 test_taulell:
 	@echo "--------------------------------------------------"
