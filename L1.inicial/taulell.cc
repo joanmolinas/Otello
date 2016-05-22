@@ -212,4 +212,15 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 void taulell::posa_fitxa(coord c, int color) {
   taula[c.x][c.y].omple(color);
 
+  // //Girar.
+  // coord cfin;
+  // bool girable;
+  // direccio d;
+  // while (!d.is_stop()) {
+  //   es_pot_girar(c, d, color, girable, cfin);
+  //   if (girable) {
+  //     gira_fitxes(c, cfin, d);
+  //   }
+  //   ++d;
+  // }
 }
