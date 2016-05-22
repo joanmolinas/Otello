@@ -91,7 +91,8 @@ void taulell::mostra(int color) const {
             casella c = taula[i][j];
             cout<<" ";
             if( coord(i,j) == coordenades.front()) {
-                cout<<"?";
+                if (c.valor() == casella::LLIURE) cout<<"?";
+                else cout << c.mostra();
                 coordenades.pop();
             }
             else cout<<c.mostra();
