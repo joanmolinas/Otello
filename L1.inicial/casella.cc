@@ -4,8 +4,6 @@
 ///////////////////////////////////////////
 //// Implementació de la classe casella ///
 
-//TODO: Afegir PRE i POSTS.
-
 //---- Crea una casella amb valor inicial LLIURE.
 casella::casella() {
 //PRE: Cert.

@@ -3,8 +3,6 @@
 
 using namespace std;
 
-//TODO: Afegir PRE i POSTS.
-
 ///////////////////////////////////////////
 //// Implementació de la classe coord ///
 
