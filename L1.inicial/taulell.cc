@@ -10,10 +10,10 @@
 //---- Pre: n >=2
 taulell::taulell(nat n) {
 //PRE: Entra un natural n.
-//POST:Es crea un taulle de n x n i sestableixen les 
+//POST:Es crea un taulle de n x n i sestableixen les
 //fitxes inicials a partir del tamany del tauler.
     // crea taula de mida n x n
-    
+
     taula = vector<vector<casella> >(n,vector<casella>(n,casella()));
 
     // inicialitza les 4 caselles centrals del taulell
@@ -72,7 +72,7 @@ void taulell::mostra() const {
 //---- les caselles on es poden posar fitxes del color donat.
 void taulell::mostra(int color) const {
 //PRE: Entra un color per referencia.
-//POST: Mostra per pantalla un interrogant en qualsevol posicio si 
+//POST: Mostra per pantalla un interrogant en qualsevol posicio si
 // en la posició es pot posar una fitxa del color donat.
     queue<coord> coordenades = coord_pot_jugar(color);
     if (coordenades.size() == 0) {
@@ -106,7 +106,7 @@ void taulell::mostra(int color) const {
 //---- num_caselles_blanques - num_caselles_negres.
 int taulell::avalua() const {
 //PRE: Cert.
-//POST: Llegeix totes les fitxes del tauler i retorna la resta 
+//POST: Llegeix totes les fitxes del tauler i retorna la resta
 // de caselles blanques amb les negres.
     int blanques = 0, negres = 0;
     for (int i = 0; i < taula.size(); i++) {
@@ -181,19 +181,6 @@ bool taulell::pot_jugar(int color) const {
     int i = 0, j;
     bool colocable;
 
-    // for (int i = 0; i < taula.size(); i++) {
-    //   for (int j = 0; j < taula.size(); j++) {
-    //     coord cord = coord(i,j);
-    //     if (!dins_limits(cord)) {
-    //       break;
-    //     }
-    //     if (mov_possible(cord, color)) {
-    //       colocable = true;
-    //       break;
-    //     }
-    //   }
-    // }
-
     while (i < taula.size() && !colocable) {
         j = 0;
         while(j < taula.size() && !colocable) {
@@ -243,16 +230,4 @@ void taulell::posa_fitxa(coord c, int color) {
 //PRE: Entra una coordenada i un color.
 //POST: Coloca la fitxa del color a la coordenada.
     taula[c.x][c.y].omple(color);
-
-// //Girar.
-// coord cfin;
-// bool girable;
-// direccio d;
-// while (!d.is_stop()) {
-//   es_pot_girar(c, d, color, girable, cfin);
-//   if (girable) {
-//     gira_fitxes(c, cfin, d);
-//   }
-//   ++d;
-// }
 }
