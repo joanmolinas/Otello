@@ -35,7 +35,7 @@ class direccio {
         ///--- Permet usar instruccions "++d" (on d és de tipus direcció).
         direccio& operator++();
         //PRE: Cert.
-        //POST: Retorna una direccio la qual se li suma 1 excepte el STOP.   
+        //POST: Retorna la direccio seguent de la llista excepte el STOP.   
 
         ///--- Obtenir les components x,y que significa un moviment en
         ///--- en aquesta direcció. P.ex  N -> (-1,0), NE -> (-1,1)
