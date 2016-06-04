@@ -77,10 +77,7 @@ void taulell::mostra(int color) const {
 //POST: Mostra per pantalla un interrogant en qualsevol posicio si
 // en la posició es pot posar una fitxa del color donat.
     queue<coord> coordenades = coord_pot_jugar(color);
-    if (coordenades.size() == 0) {
-        mostra();
-        return;
-    }
+
     //INV: A cada iteracio mostra el número entre 1 i el tamany de la taula.
     for (int i = 0; i <= taula.size(); i++) {
         if (i != 0) cout<<" "<<i;
@@ -94,7 +91,7 @@ void taulell::mostra(int color) const {
             if (j == 0) cout<<i+1;
             casella c = taula[i][j];
             cout<<" ";
-            if( coord(i,j) == coordenades.front()) {
+            if(!coordenades.empty() && coord(i,j) == coordenades.front()) {
                 if (c.valor() == casella::LLIURE) cout<<"?";
                 else cout << c.mostra();
                 coordenades.pop();
@@ -135,7 +132,7 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
     bool colocable = false, acabat = false;
     coord coord_final;
     cini = cini+d.despl();
-
+    girar = false;
     if (!dins_limits(cini)) return;
 
     casella cas = taula[cini.x][cini.y];
@@ -144,6 +141,9 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
         //INV: A cada iteracio es mira si es pot girar una peça fins que una no es pot girar i para el bucle.
         while(!acabat && !colocable) {
             cini = cini+d.despl();
+            // if (d.mostra() == "OEST") {
+            //   cout<<"OEST = "<<cini.mostra()<<" "<<color<<endl;
+            // }
             if (dins_limits(cini)) {
                 cas = taula[cini.x][cini.y];
                 if (cas.valor() == color) {
@@ -151,7 +151,8 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
                     coord_final = cini;
                 }
                 else if(cas.valor() == casella::LLIURE) acabat = true;
-                else acabat = true;
+            } else {
+              acabat = true;
             }
         }
     }
@@ -170,7 +171,7 @@ bool taulell::mov_possible(coord c, int color) const {
 
     if (cas.valor() != casella::LLIURE) return false;
 
-    bool possible;
+    bool possible = false;
     direccio d;
     coord final;
     //INV: A cada iteracio es mira si una casella es pot girar fins que no es possible o sacaven.
@@ -186,16 +187,16 @@ bool taulell::mov_possible(coord c, int color) const {
 bool taulell::pot_jugar(int color) const {
 //PRE: Entra un color.
 //POST: Retorna si aquest color te algun moviment possible per saber si pot jugar.
-    int i = 0, j;
-    bool colocable;
+    int i = 0, j = 0;
+    bool colocable = false;;
 
     //INV: A cada iteració hi ha un while, desde i=0 fins a i< el tamany de la taula.
-    while (i < taula.size() && !colocable) {
+    while (!colocable && i < taula.size()) {
         j = 0;
         //INV: A cada iteracio es mira si hi ha un moviment possible o no.
-        while(j < taula.size() && !colocable) {
+        while(!colocable && j < taula.size() ) {
             coord cord = coord(i,j);
-            if (mov_possible(cord, color)) colocable = true;
+            colocable = mov_possible(cord, color);
             j++;
         }
         i++;
@@ -227,11 +228,10 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 //PRE: Entran la coordenada inicial, la final i la direcció.
 //POST: Gira totes les fitxes (les canvia de color) des de coordenada inicial fins a la final seguint la direcció.
     ci = ci+d.despl();
+
     //INV: mentre la coordenada inicial i la final no siguin iguals, somplen les caselles desde la inicial fins la final seguint una direcció.
     while (!(ci == cf)) {
-        casella cas = taula[ci.x][ci.y];
-        cas.omple(-1*cas.valor());
-        taula[ci.x][ci.y] = cas;
+        taula[ci.x][ci.y].omple(-taula[ci.x][ci.y].valor());
         ci = ci + d.despl();
     }
 }
@@ -242,4 +242,16 @@ void taulell::posa_fitxa(coord c, int color) {
 //PRE: Entra una coordenada i un color.
 //POST: Coloca la fitxa del color a la coordenada.
     taula[c.x][c.y].omple(color);
+
+    coord cfin;
+    bool girable;
+    direccio d;
+    //TODO: Afegir invariant.
+    while (!d.is_stop()) {
+      es_pot_girar(c, d, color, girable, cfin);
+      if (girable) {
+        gira_fitxes(c, cfin, d);
+      }
+      ++d;
+    }
 }

@@ -19,9 +19,9 @@ proves_casella: casella.h casella.cc proves_casella.cc
 proves_taulell: util.h coord.h direccio.h casella.h taulell.h taulell.cc proves_taulell.cc
 	g++ -o proves_taulell proves_taulell.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
 
-# otelo: util.h coord.h direccio.h casella.h taulell.h taulell.cc otelo.cc
-# 	g++ -o otelo otelo.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
-#
+otelo: util.h coord.h direccio.h casella.h taulell.h taulell.cc otelo.cc
+	g++ -o otelo otelo.cc util.cc coord.cc direccio.cc casella.cc taulell.cc; \
+
 clean:
 	rm -f *.o proves_coord proves_direccio proves_casella proves_taulell otelo
 
@@ -45,7 +45,7 @@ test_taulell:
 
 test_otelo:
 	@echo "--------------------------------------------------"
-	./otelo 2 | diff - $(TEST)/otelo2.out;
+	./otelo 2 | diff - $(TEST)/otelo2.out
 	./otelo 3 < $(TEST)/otelo3_1.in | diff - $(TEST)/otelo3_1.out;
 	./otelo 3 < $(TEST)/otelo3_2.in | diff - $(TEST)/otelo3_2.out;
 	./otelo 4 < $(TEST)/otelo4.in | diff - $(TEST)/otelo4.out;

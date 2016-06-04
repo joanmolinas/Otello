@@ -51,10 +51,10 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   cout<<"a les caselles: ";
   caselles = t.coord_pot_jugar(casella::BLANCA);
   while (not caselles.empty()) {
-      cout <<caselles.front().mostra1();
-      if (caselles.size() > 1) cout<<" ";
-      caselles.pop();
-    }
+    cout <<caselles.front().mostra1();
+    if (caselles.size() > 0) cout<<" ";
+    caselles.pop();
+  }
 
 
   cout<<endl;
@@ -63,7 +63,7 @@ void jugada(taulell &t, coord ci, direccio d, int color) {
   caselles = t.coord_pot_jugar(casella::NEGRA);
   while (not caselles.empty()) {
     cout <<caselles.front().mostra1();
-    if (caselles.size() > 1) cout<<" ";
+    if (caselles.size() > 0) cout<<" ";
     caselles.pop();
   }
   cout<<endl;
