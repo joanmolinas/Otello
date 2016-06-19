@@ -68,6 +68,9 @@ class taulell {
         //---- Les caselles negres de la primera/última fila/columna les * -5
         //---- Les caselles negres de les 4 cantonades les * -10
         int avalua_posicio() const;
+        //PRE: Cert
+        //POST: Llegeix totes les fitxes del tauler i retorna el valor del taulell
+        //amb les caselles ponderades.
 
         //---- Comprova si es pot girar desde la coordenada cini en la direcció d
         //---- varies fitxes de l'adversari (al final hem de trobar un color 'nostre').

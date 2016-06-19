@@ -128,33 +128,24 @@ int taulell::avalua() const {
 //---- Les caselles negres de la primera/última fila/columna les * -5
 //---- Les caselles negres de les 4 cantonades les * -10
 int taulell::avalua_posicio() const {
-//PRE:
-//POST:
+//PRE: Cert
+//POST: Llegeix totes les fitxes del tauler i retorna el valor del taulell
+//amb les caselles ponderades.
   int total = 0;
-  //INV:
+  //INV:i < taula.size()
   for (int i = 0; i < taula.size(); i++) {
-    //INV:
+    //INV: j < taula.size(), c serà una casella del taulell, total = suma de caselles ponderades.
     for (int j = 0; j < taula.size(); j++) {
       casella c = taula[i][j];
       if (c.valor() != casella::LLIURE) {
         bool caselles_10 = (i == 0 || i == taula.size()-1) && (j == 0 || j == taula.size()-1);
         bool caselles_5 = ((j == 0 || i == 0) || (j == taula.size()-1 || i == taula.size()-1));
-        if (caselles_10) {
-          // cout<<"10";
-          total += 10*c.valor();
-        } else if(caselles_5) {
-          total += 5*c.valor();
-          // cout<<"5";
-        } else {
-          total += 1*c.valor();
-          // cout<<"1";
-        }
-        // cout<<" ";
+        if (caselles_10) total += 10*c.valor();
+        else if(caselles_5) total += 5*c.valor();
+        else total += 1*c.valor();
       }
     }
-      // cout<<endl;
   }
-  // cout<<total<<endl;
   return total;
 }
 

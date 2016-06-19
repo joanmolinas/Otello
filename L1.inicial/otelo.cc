@@ -78,13 +78,14 @@ coord moviment_aleatori(taulell t, int color, nat limit) {
 }
 
 
-nat debug = 1; // Debugar minimax: 0: No, 1: Abans crida recursiva, 2: Desprès crida recursiva
+nat debug = 0; // Debugar minimax: 0: No, 1: Abans crida recursiva, 2: Desprès crida recursiva
 
 int minimax(taulell &t, int color, nat prof, nat metode, coord &cmillor) {
   // Avalua segons un algorisme minimax el taulell "t" pel color "color"
   // fins a una profunditat "prof" i segons el mètode "metode" la millor
   // coordenada per tirar "cmillor" i retorna el valor avaluat.
   // pre: color = BLANCA o NEGRA, prof >= 1, metode = 0 o 1
+  // post: cmillor serà el següent moviment al qual tirarà la màquina, retorna el valor d'aquest moviment.
 
   int seguent, millor;
   if(debug==1){
@@ -102,6 +103,8 @@ int minimax(taulell &t, int color, nat prof, nat metode, coord &cmillor) {
       queue<coord> c = t.coord_pot_jugar(color);
       int size = c.size();
       cmillor = c.front();
+      //INV: c mai estarà buida, cmillor serà una coordenada de la cua,
+      //size = size original de la cua, seguent = coordenada seguent on mirar
       while(!c.empty()){
            taulell t_copia(t);
            t_copia.posa_fitxa(c.front(),color);
@@ -136,7 +139,6 @@ int main(int argc, char *argv[]) {
   nat metode = 0; // Mètode avaluació taulell en la cerca minimax:
                   // 0: Avalua les fitxes del taulell (blanques-negres)
                   // 1: Avalua les fitxes del taulell ponderat segon posició
-
   if (argc > 1)
     mida = atoi(argv[1]);
   if (argc > 2)
