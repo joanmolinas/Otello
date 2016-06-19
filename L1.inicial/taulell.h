@@ -29,7 +29,7 @@ class taulell {
         //---- Pre: n >=2
         taulell(nat n);
         //PRE: Entra un natural n.
-        //POST:Es crea un taulle de n x n i sestableixen les 
+        //POST:Es crea un taulle de n x n i sestableixen les
         //fitxes inicials a partir del tamany del tauler.
 
         //---- Diu si les coord p estan dins dels limits del taulell.
@@ -51,15 +51,23 @@ class taulell {
         //---- les caselles on es poden posar fitxes del color donat.
         void mostra(int color) const;
         //PRE: Entra un color per referencia.
-        //POST: Mostra per pantalla un interrogant en qualsevol posicio si 
+        //POST: Mostra per pantalla un interrogant en qualsevol posicio si
         // en la posició es pot posar una fitxa del color donat.
 
         //---- Avalua les fitxes del taulell:
         //---- num_caselles_blanques - num_caselles_negres.
         int avalua() const;
         //PRE: Cert.
-        //POST: Llegeix totes les fitxes del tauler i retorna la resta 
+        //POST: Llegeix totes les fitxes del tauler i retorna la resta
         // de caselles blanques amb les negres.
+
+        //---- Avalua les fitxes del taulell ponderat segons posicio
+        //---- num_caselles_blanques - num_caselles_negres.
+        //---- Les caselles blanques de la primera/última fila/columna les *5
+        //---- Les caselles blanques de les 4 cantonades les *10
+        //---- Les caselles negres de la primera/última fila/columna les * -5
+        //---- Les caselles negres de les 4 cantonades les * -10
+        int avalua_posicio() const;
 
         //---- Comprova si es pot girar desde la coordenada cini en la direcció d
         //---- varies fitxes de l'adversari (al final hem de trobar un color 'nostre').

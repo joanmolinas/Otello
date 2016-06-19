@@ -78,54 +78,14 @@ coord moviment_aleatori(taulell t, int color, nat limit) {
 }
 
 
-nat debug = 1; // Debugar minimax: 0: No, 1: Abans crida recursiva, 2: Desprès crida recursiva
+nat debug = 0; // Debugar minimax: 0: No, 1: Abans crida recursiva, 2: Desprès crida recursiva
 
 int minimax(taulell &t, int color, nat prof, nat metode, coord &cmillor) {
-  // Avalua segons un algorisme minimax el taulell "t" pel color "color"
-  // fins a una profunditat "prof" i segons el mètode "metode" la millor
-  // coordenada per tirar "cmillor" i retorna el valor avaluat.
-  // pre: color = BLANCA o NEGRA, prof >= 1, metode = 0 o 1
-
-  int seguent, millor;
-  if(debug==1){
-    cout<<"PROF: "<<prof<<" COLOR: " << (color==casella::BLANCA ? "B" : "N")<<endl;
-    t.mostra();
-  }
-
-  if(prof==0) millor = (metode == 0) ? t.avalua() : t.avalua_posicio();
-  else if (!t.pot_jugar(color) && !t.pot_jugar(-color)) {
-    millor = t.avalua();
-    if (millor > 0) millor=1000;
-    else if(millor<0) millor=-1000;
-  } else{
-    if(t.pot_jugar(color)){
-      queue<coord> c = t.coord_pot_jugar(color);
-      int size = c.size();
-      cmillor = c.front();
-      while(!c.empty()){
-           taulell t_copia(t);
-           t_copia.posa_fitxa(c.front(),color);
-           coord aux_cmillor;
-           seguent = minimax(t_copia, -color, prof-1, metode, aux_cmillor);
-
-           //Primera iteració
-           if(c.size() == size) millor=seguent;
-           bool condicio_canvi = (color == casella::BLANCA) ? seguent>millor : seguent<millor;
-           if (condicio_canvi) {
-             cmillor = c.front();
-             millor = seguent;
-           }
-           c.pop();
-      }
-  } else millor = minimax(t, -color, prof-1, metode, cmillor);
-}
-
-  if(debug==2){
-    cout<<"PROF: "<<prof<<" COLOR: " << (color==casella::BLANCA ? "B" : "N");
-    cout<<" VMILLOR: "<<millor<<endl;
-  }
-
-  return millor;
+// Avalua segons un algorisme minimax el taulell "t" pel color "color"
+// fins a una profunditat "prof" i segons el mètode "metode" la millor
+// coordenada per tirar "cmillor" i retorna el valor avaluat.
+// pre: color = BLANCA o NEGRA, prof >= 1, metode = 0 o 1
+  ????
 }
 
 
@@ -180,9 +140,6 @@ int main(int argc, char *argv[]) {
     coord moviment;
     if (mode == 1 && torn == casella::BLANCA) {
       moviment = moviment_aleatori(taula, torn, limit);
-    } else if(mode == 2 && torn == casella::BLANCA) {
-      minimax(taula, casella::BLANCA, prof, metode, moviment);
-
     } else {
       moviment = demana_moviment(taula, torn, limit);
     }

@@ -1,0 +1,350 @@
+========== Jugador N ==========
+  1 2 3 4
+1 - ? - -
+2 ? B N -
+3 - N B ?
+4 - - ? -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 ? N ? -
+2 - N N -
+3 ? N B -
+4 - - - -
+PROF: 2 COLOR: B
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 - N B -
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 N N N -
+3 - N B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N N -
+4 - - N -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 - N B -
+2 - N B -
+3 - N B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N N N
+2 - N N -
+3 - N B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N B -
+2 - N N N
+3 - N B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N B -
+2 - N N -
+3 - N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N B -
+2 - N B -
+3 - N N -
+4 - - - N
+PROF: 1 COLOR: N
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B B B -
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B N B -
+4 N - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B N B -
+4 - N - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B B N -
+4 - - N -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 - N - -
+2 - N N -
+3 B B N -
+4 - - - N
+Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4
+1 B N - -
+2 ? B N -
+3 - N B ?
+4 - - ? -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 B N ? -
+2 - B N ?
+3 - N N N
+4 - ? - ?
+PROF: 2 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 - B N -
+3 - N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N N N -
+3 - N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B N - -
+2 - B B B
+3 - N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N N -
+2 - B N B
+3 - N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - N
+2 - B N N
+3 - N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - B N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 N N N -
+3 - B N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 N N N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N N N
+4 N B - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N B N
+4 - - - B
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 N N N -
+3 - N B N
+4 - - - B
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B N - -
+2 - B N -
+3 - N N N
+4 - - N B
+Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4
+1 B B B -
+2 ? B N -
+3 - N N N
+4 - - - -
+Fila (1-4): Columna (1-4): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4
+1 B B B -
+2 N N N -
+3 ? N N N
+4 - ? ? ?
+PROF: 2 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N N N -
+3 - N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 - B N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 N N N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 - N N N
+4 N B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 - N N N
+4 - B N -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 N N B -
+3 - N B N
+4 - - B -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B N
+2 N N N -
+3 - N B N
+4 - - B -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N N N N
+3 - N B N
+4 - - B -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N N B -
+3 - N N N
+4 - - B N
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 - N B N
+4 - - - B
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 N B N -
+3 - N N N
+4 - - N B
+Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4
+1 B B B -
+2 B B N ?
+3 B N N N
+4 - ? ? ?
+PROF: 2 COLOR: B
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 B B B B
+3 B N N N
+4 - - - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B N
+2 B B N N
+3 B N N N
+4 - - - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B B N N
+4 - B - -
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N N N
+4 N B - -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 B B B -
+3 B B B N
+4 - - B -
+PROF: 1 COLOR: N
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N B N
+4 - - - B
+PROF: 0 COLOR: B
+  1 2 3 4
+1 B B B -
+2 B B N -
+3 B N N N
+4 - - N B
+Està guanyant el jugador B.
+========== Fi partida ==========
+  1 2 3 4
+1 B B B -
+2 B B B -
+3 B B B N
+4 - - B -
+Ha guanyat el jugador B.

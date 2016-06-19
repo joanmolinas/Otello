@@ -34,7 +34,7 @@ bool taulell::dins_limits(coord p) const {
     bool dins_x = p.x >= 0 && p.x < taula.size();
     bool dins_y = p.y >= 0 && p.y < taula.size();
     return dins_x && dins_y;
-    }
+  }
 
 
 //---- Accedeix a la casella de la coord p del taulell.
@@ -92,8 +92,7 @@ void taulell::mostra(int color) const {
             casella c = taula[i][j];
             cout<<" ";
             if(!coordenades.empty() && coord(i,j) == coordenades.front()) {
-                if (c.valor() == casella::LLIURE) cout<<"?";
-                else cout << c.mostra();
+                cout<<"?";
                 coordenades.pop();
             }
             else cout<<c.mostra();
@@ -109,17 +108,54 @@ int taulell::avalua() const {
 //PRE: Cert.
 //POST: Llegeix totes les fitxes del tauler i retorna la resta
 // de caselles blanques amb les negres.
-    int blanques = 0, negres = 0;
-    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
+    int total = 0;
+    //INV: i < el tamany.size().
     for (int i = 0; i < taula.size(); i++) {
-        //INV: A cada iteracio es conta si la casella actual de la taula es blanca o negra.
+        //INV: j < taula.size(), blanques <= tamany del taulell, negres <= tamany del taulell
+        // c = casella dins els taulell.
         for (int j = 0; j < taula.size(); j++) {
             casella c = taula[i][j];
-            if (c.valor() == casella::BLANCA) blanques++;
-            else if(c.valor() == casella::NEGRA) negres++;
+            total+=c.valor();
         }
     }
-    return blanques - negres;
+    return total;
+}
+
+//---- Avalua les fitxes del taulell ponderat segons posicio
+//---- num_caselles_blanques - num_caselles_negres.
+//---- Les caselles blanques de la primera/última fila/columna les *5
+//---- Les caselles blanques de les 4 cantonades les *10
+//---- Les caselles negres de la primera/última fila/columna les * -5
+//---- Les caselles negres de les 4 cantonades les * -10
+int taulell::avalua_posicio() const {
+//PRE:
+//POST:
+  int total = 0;
+  //INV:
+  for (int i = 0; i < taula.size(); i++) {
+    //INV:
+    for (int j = 0; j < taula.size(); j++) {
+      casella c = taula[i][j];
+      if (c.valor() != casella::LLIURE) {
+        bool caselles_10 = (i == 0 || i == taula.size()-1) && (j == 0 || j == taula.size()-1);
+        bool caselles_5 = ((j == 0 || i == 0) || (j == taula.size()-1 || i == taula.size()-1));
+        if (caselles_10) {
+          // cout<<"10";
+          total += 10*c.valor();
+        } else if(caselles_5) {
+          total += 5*c.valor();
+          // cout<<"5";
+        } else {
+          total += 1*c.valor();
+          // cout<<"1";
+        }
+        // cout<<" ";
+      }
+    }
+      // cout<<endl;
+  }
+  // cout<<total<<endl;
+  return total;
 }
 
 
@@ -138,12 +174,9 @@ void taulell::es_pot_girar(coord cini, direccio d, int color, bool &girar, coord
     casella cas = taula[cini.x][cini.y];
 
     if (cas.valor() != casella::LLIURE && cas.valor() != color) {
-        //INV: A cada iteracio es mira si es pot girar una peça fins que una no es pot girar i para el bucle.
+        //INV: acabat = false, colocable = false, cini estarà dins els limits.
         while(!acabat && !colocable) {
             cini = cini+d.despl();
-            // if (d.mostra() == "OEST") {
-            //   cout<<"OEST = "<<cini.mostra()<<" "<<color<<endl;
-            // }
             if (dins_limits(cini)) {
                 cas = taula[cini.x][cini.y];
                 if (cas.valor() == color) {
@@ -174,7 +207,7 @@ bool taulell::mov_possible(coord c, int color) const {
     bool possible = false;
     direccio d;
     coord final;
-    //INV: A cada iteracio es mira si una casella es pot girar fins que no es possible o sacaven.
+    //INV: d != STOP, possible = false
     while (!d.is_stop() && !possible) {
         es_pot_girar(c, d, color, possible, final);
         if (!possible) ++d;
@@ -190,10 +223,10 @@ bool taulell::pot_jugar(int color) const {
     int i = 0, j = 0;
     bool colocable = false;;
 
-    //INV: A cada iteració hi ha un while, desde i=0 fins a i< el tamany de la taula.
+    //INV: i < taula.size() i colocable = false
     while (!colocable && i < taula.size()) {
         j = 0;
-        //INV: A cada iteracio es mira si hi ha un moviment possible o no.
+        //INV: j < taula.size(), colocable = false, coord estarà dins el taulell.
         while(!colocable && j < taula.size() ) {
             coord cord = coord(i,j);
             colocable = mov_possible(cord, color);
@@ -210,9 +243,9 @@ queue<coord> taulell::coord_pot_jugar(int color) const {
 //PRE:  Entra un color.
 //POST: Retorna una cua de coordenades la qual conte les coordenades on el jugador del color que ha entrat pot jugar.
     queue<coord> coordenades;
-    //INV: A cada iteració hi ha un for, desde i=0 fins a i< el tamany de la taula.
+    //INV: i < taula.size()
     for (int i = 0; i < taula.size(); i++) {
-        //INV: A cada iteració desde j=0 fins a j< al tamany de la taula es mira si hi ha algun moviment possible.
+        //INV: j < taula.size(), coordenades.size() >= 0
         for (int j = 0; j < taula.size(); j++) {
             coord cord = coord(i,j);
             bool pos = mov_possible(cord, color);
@@ -229,7 +262,7 @@ void taulell::gira_fitxes(coord ci, coord cf, direccio d) {
 //POST: Gira totes les fitxes (les canvia de color) des de coordenada inicial fins a la final seguint la direcció.
     ci = ci+d.despl();
 
-    //INV: mentre la coordenada inicial i la final no siguin iguals, somplen les caselles desde la inicial fins la final seguint una direcció.
+    //INV: ci != cf i ci estarà dins els limits.
     while (!(ci == cf)) {
         taula[ci.x][ci.y].omple(-taula[ci.x][ci.y].valor());
         ci = ci + d.despl();
@@ -246,12 +279,10 @@ void taulell::posa_fitxa(coord c, int color) {
     coord cfin;
     bool girable;
     direccio d;
-    //TODO: Afegir invariant.
+    //INV: d != STOP
     while (!d.is_stop()) {
       es_pot_girar(c, d, color, girable, cfin);
-      if (girable) {
-        gira_fitxes(c, cfin, d);
-      }
+      if (girable) gira_fitxes(c, cfin, d);
       ++d;
     }
 }

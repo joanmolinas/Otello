@@ -1,0 +1,671 @@
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - - ? - - - -
+4 - - ? B N - - -
+5 - - - N B ? - -
+6 - - - - ? - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - - - - - - -
+4 - - - B N ? - -
+5 - - - N N - - -
+6 - - - ? N ? - -
+7 - - - - - - - -
+8 - - - - - - - -
+Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - ? ? ? ? ? -
+4 - - - B B B - -
+5 - - - N N - - -
+6 - - - - N - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - - - - - N -
+4 - - - B B N ? -
+5 - - - N N - - -
+6 - - ? ? N ? - -
+7 - - - - ? - - -
+8 - - - - - - - -
+Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - -
+3 - - ? ? ? ? N -
+4 - - - B B B B -
+5 - - - N N - ? -
+6 - - - - N - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - ? - ? ? ?
+3 - - - - N - N -
+4 - - - B N B B -
+5 - - - N N - - -
+6 - - - ? N ? - -
+7 - - - - - - - -
+8 - - - - - - - -
+Esteu empatant.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - - - B
+3 - - ? ? N - B -
+4 - - ? B N B B ?
+5 - - ? N N - ? -
+6 - - - - N - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - ? - B
+3 - - - - N - B -
+4 - - - B N N N N
+5 - - - N N - ? -
+6 - - - ? N ? - -
+7 - - - - - - - -
+8 - - - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - ? ? B
+3 - - - - N - B -
+4 - - ? B N B N N
+5 - - ? B B - ? -
+6 - - ? B N - - -
+7 - - - - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - ? ? - B
+3 - - - - N ? B -
+4 - - - B N N N N
+5 - - - B B - N -
+6 - - - B N ? ? -
+7 - - - - ? ? - -
+8 - - - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - ? - B
+3 - - - - N - B -
+4 - - ? B N N B N
+5 - - ? B B - B -
+6 - - ? B N ? B ?
+7 - - ? - - - - -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - ? ? - B
+3 - - - - N ? B -
+4 - - - B N N B N
+5 - - - B B - N -
+6 - - - B N ? B N
+7 - - - - ? ? - -
+8 - - - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - - ? ? B
+3 - - - - N - B -
+4 - - ? B N N B N
+5 - - ? B B - N -
+6 - - ? B B ? B N
+7 - - ? - ? B ? -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - ? - - B
+3 - - ? ? N ? B -
+4 - ? ? N N N B N
+5 - ? N B B - N -
+6 - - - B B - B N
+7 - - - - - B - -
+8 - - - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - ? B ? ? B
+3 - - - - B - B -
+4 - - - N B N B N
+5 - - N B B ? N -
+6 - - - B B ? B N
+7 - - ? ? ? B ? -
+8 - - - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - - B - - B
+3 - - - ? B - B -
+4 - - ? N B N B N
+5 - ? N B N ? N -
+6 - ? ? N B - B N
+7 - - N ? - B - -
+8 - ? - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - - -
+2 - - - ? B ? ? B
+3 - - - - B - B -
+4 - - - N B B B N
+5 - - N B B ? N -
+6 - - - B B ? B N
+7 - - B ? ? B ? -
+8 - B - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - ? -
+2 - - - - B ? N B
+3 - - ? ? B - N -
+4 - ? ? N B B N N
+5 - ? N B B - N -
+6 - ? - B B - B N
+7 - - B - - B - -
+8 - B - - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - B -
+2 - - - ? B ? B B
+3 - - - - B - B -
+4 - - - N B B B N
+5 - - N B B ? B -
+6 - - - B B ? B N
+7 - - B ? ? B - -
+8 - B - - - - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - B -
+2 - - - - B - B B
+3 - - ? - B - B -
+4 - - ? N B B B N
+5 - ? N N B - B -
+6 - ? ? N B - B N
+7 - - B N ? B - -
+8 - B ? - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - B -
+2 - - - ? B ? B B
+3 - - - - B ? B -
+4 - - - N B B B N
+5 - - N N B ? B -
+6 - - - N B ? B N
+7 - - B B - B - -
+8 - B B ? - - ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - B -
+2 - - - ? B N B B
+3 - - ? ? N - N -
+4 - - ? N B B B N
+5 - ? N N B - B -
+6 - ? ? N B - B N
+7 - - B B - B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - ? - B -
+2 - - - ? B B B B
+3 - - - ? B ? N -
+4 - ? ? B B B B N
+5 - ? B N B ? B -
+6 - B - N B ? B N
+7 - - B B - B ? -
+8 - B B ? - - ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - - - B -
+2 - - - - B B B B
+3 - ? ? ? B - N -
+4 - - N N N N N N
+5 - - B N B - B -
+6 - B ? N B - B N
+7 - - B B ? B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - - - ? ? B -
+2 - - ? ? B B B B
+3 - - - B B - N -
+4 - - N B N N N N
+5 - - B B B - B -
+6 - B ? B B ? B N
+7 - - B B ? B ? -
+8 - B B - - - ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - - - N ? B -
+2 - - - ? N N B B
+3 - ? ? B N ? N -
+4 - ? N B N N N N
+5 - ? B B B ? B -
+6 - B - B B - B N
+7 - - B B - B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - ? - N ? B -
+2 - - ? B B B B B
+3 - - ? B B - N -
+4 - - N B N B N N
+5 - - B B B - B -
+6 - B ? B B ? B N
+7 - - B B ? B ? -
+8 - B B - - - ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - - N ? N - B -
+2 - - ? N B B B B
+3 - ? ? B N ? N -
+4 - ? N B N N N N
+5 - ? B B B ? N -
+6 - B - B B - B N
+7 - - B B - B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N ? B -
+2 - - ? B B B B B
+3 - - ? B N - N -
+4 - - N B N N N N
+5 - - B B B - N -
+6 - B ? B B ? B N
+7 ? - B B ? B ? -
+8 - B B - - - ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - ? ? B N ? N -
+4 - ? N B N N N N
+5 - ? N N B ? N -
+6 - B N B B - B N
+7 - - B B - B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 - - ? B B B B B
+3 - B ? B N - N -
+4 - ? B B N N N N
+5 - - N B B ? N -
+6 ? B N B B ? B N
+7 ? - B B ? B ? -
+8 - B B - ? - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? N -
+4 - ? B B N N N N
+5 ? ? N B B ? N -
+6 N N N B B - B N
+7 ? ? B B - B - -
+8 - B B - - - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 - - - B B B B B
+3 - B ? B N ? N -
+4 - ? B B B N N N
+5 - - N B B B N -
+6 N N N B B ? B N
+7 - - B B ? B ? -
+8 - B B ? ? - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? N ?
+4 - ? B B B N N N
+5 ? ? N B B B N ?
+6 N N N B B - B N
+7 ? ? B N ? B - -
+8 - B B ? N - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 - - - B B B B B
+3 - B ? B N ? N -
+4 - ? B B B N N N
+5 - - N B B B B B
+6 N N N B B ? B N
+7 - ? B N ? B ? -
+8 - B B ? N - - -
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? N ?
+4 - - B B B N N N
+5 ? ? N B B N N B
+6 N N N N N N N N
+7 ? ? B N ? B ? ?
+8 - B B ? N - - -
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 ? - ? B B B B B
+3 - B ? B N ? B ?
+4 - ? B B B N B N
+5 - - N B B N B B
+6 N N N N N B B N
+7 - ? B N ? B B ?
+8 - B B ? N ? ? -
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? B ?
+4 - - B B B N B N
+5 ? ? N B B N B B
+6 N N N N N N B N
+7 ? ? B N ? N N ?
+8 - B B ? N N ? ?
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 ? - ? B B B B B
+3 - B ? B N ? B ?
+4 - ? B B B N B N
+5 - - N B B N B B
+6 N N N N N B B N
+7 - ? B N ? N B ?
+8 - B B ? N N - B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? B ?
+4 - - B B B N B N
+5 ? ? N B B N B B
+6 N N N N N B N N
+7 ? ? B N ? N N N
+8 - B B ? N N ? B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 - - ? B B B B B
+3 - B ? B N ? B ?
+4 - ? B B B N B N
+5 - - N B B N B B
+6 N N N N B B B N
+7 - ? B N ? B B N
+8 - B B ? N N B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 - B - B N ? B ?
+4 - - B B N N B N
+5 ? ? N B N N N B
+6 N N N N N N B N
+7 ? ? B N N N N N
+8 - B B ? N N B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 ? - ? B B B B B
+3 - B ? B N - B ?
+4 - ? B B N N B N
+5 - - N B N N N B
+6 N N N B N N B N
+7 - ? B B N N N N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 ? B ? B N ? B ?
+4 ? N N N N N B N
+5 ? ? N B N N N B
+6 N N N B N N B N
+7 ? ? B B N N N N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N - B -
+2 ? ? ? B B B B B
+3 ? B B B N - B ?
+4 - N B B N N B N
+5 - ? B B B N N B
+6 N N B B N B B N
+7 - ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 ? B B B N ? B ?
+4 ? N B B N N B N
+5 ? N N N N N N B
+6 N N B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N ? B -
+2 ? - ? B B B B B
+3 ? B B B N - B ?
+4 ? B B B N N B N
+5 B B B B B B B B
+6 N B B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 - - - B B B B B
+3 ? B B B N ? B ?
+4 N N N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 - - B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 - - N B N ? B -
+2 ? ? ? B B B B B
+3 B B B B N - B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 - ? N B N ? B -
+2 N ? - B B B B B
+3 N N B B N ? B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 - - B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 ? - N B N ? B -
+2 N B ? B B B B B
+3 N B B B N - B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 N ? N B N ? B -
+2 N N ? B B B B B
+3 N B N B N ? B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 - - B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N ? B -
+2 N B ? B B B B B
+3 N B N B N - B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N ? B -
+2 N N N B B B B B
+3 N N N N N ? B ?
+4 N B N N N N B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 - - B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N ? B -
+2 N N N B B B B B
+3 N N N N N B B ?
+4 N B N N B B B N
+5 N B B B B B B B
+6 N B B B N B B N
+7 ? ? B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N ? B -
+2 N N N B B B B B
+3 N N N N N B B ?
+4 N B N N B B B N
+5 N B N B B B B B
+6 N N B B N B B N
+7 N ? B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N ? B -
+2 N N N B B B B B
+3 N N N N N B B ?
+4 N B N N B B B N
+5 N B N B B B B B
+6 N B B B N B B N
+7 N B B B N N B N
+8 - B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador B.
+========== Jugador B ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N N B -
+2 N N N B N N B B
+3 N N N N N N B ?
+4 N B N N B N B N
+5 N B N B B N B B
+6 N B B B N N B N
+7 N B B B N N B N
+8 - B B B B B B B
+Està guanyant el jugador B.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N N B ?
+2 N N N B N N B B
+3 N N N N N N B B
+4 N B N N B N B B
+5 N B N B B N B B
+6 N B B B N N B N
+7 N B B B N N B N
+8 ? B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Jugador N ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N N N N
+2 N N N B N N N N
+3 N N N N N N B N
+4 N B N N B N B N
+5 N B N B B N B N
+6 N B B B N N B N
+7 N B B B N N B N
+8 ? B B B B B B B
+Fila (1-8): Columna (1-8): Està guanyant el jugador N.
+========== Fi partida ==========
+  1 2 3 4 5 6 7 8
+1 N B B B N N N N
+2 N N N B N N N N
+3 N N N N N N B N
+4 N B N N N N B N
+5 N B N N B N B N
+6 N B N B N N B N
+7 N N B B N N B N
+8 N B B B B B B B
+Ha guanyat el jugador N.

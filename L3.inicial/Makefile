@@ -1,6 +1,7 @@
+
 TEST=../L3.tests
 
-all: otelo test_otelo_mm_debug1
+all: proves_coord proves_direccio proves_casella proves_taulell otelo
 
 util: util.cc util.h
 	g++ -c util.cc; \
@@ -35,7 +36,7 @@ test_direccio:
 
 test_casella:
 	@echo "--------------------------------------------------"
-	./proves_casella | diff - $(TEST)/casella.out;
+	./proves_casella | diff - $(TEST)/casella.out; 
 
 test_taulell:
 	@echo "--------------------------------------------------"
@@ -43,7 +44,6 @@ test_taulell:
 
 test_otelo:
 	@echo "--------------------------------------------------"
-	./otelo 8 < $(TEST)/otelo8.in
 	./otelo 2 | diff - $(TEST)/otelo2.out;
 	./otelo 3 < $(TEST)/otelo3_1.in | diff - $(TEST)/otelo3_1.out;
 	./otelo 3 < $(TEST)/otelo3_2.in | diff - $(TEST)/otelo3_2.out;
@@ -67,14 +67,13 @@ test_otelo_mm:
 	./otelo 3 2 2 0 0 < $(TEST)/otelo3.in | diff - $(TEST)/otelo3.out;
 	./otelo 3 2 2 1 0 < $(TEST)/otelo3.in | diff - $(TEST)/otelo3.out;
 
-	./otelo 8 2 1 0 0 < $(TEST)/otelo8_p1_m0.in
-	| diff - $(TEST)/otelo8_p1_m0.out;
+	./otelo 8 2 1 0 0 < $(TEST)/otelo8_p1_m0.in | diff - $(TEST)/otelo8_p1_m0.out;
 	./otelo 8 2 1 1 0 < $(TEST)/otelo8_p1_m1.in | diff - $(TEST)/otelo8_p1_m1.out;
 	./otelo 8 2 2 0 0 < $(TEST)/otelo8_p2_m0.in | diff - $(TEST)/otelo8_p2_m0.out;
 	./otelo 8 2 2 1 0 < $(TEST)/otelo8_p2_m1.in | diff - $(TEST)/otelo8_p2_m1.out;
 
 test_otelo_mm_debug1:
-	@echo "----------------------DEBUG 1----------------------------"
+	@echo "--------------------------------------------------"
 	./otelo 4 2 1 0 1 < $(TEST)/otelo4a.in | diff - $(TEST)/otelo4a_p1_debug.out;
 	./otelo 4 2 2 0 1 < $(TEST)/otelo4a.in | diff - $(TEST)/otelo4a_p2_debug.out;
 
@@ -85,7 +84,7 @@ test_otelo_mm_debug1:
 	./otelo 3 2 2 0 1 < $(TEST)/otelo3.in | diff - $(TEST)/otelo3_p2_debug.out;
 
 test_otelo_mm_debug2:
-	@echo "---------------------DEBUG 2-----------------------------"
+	@echo "--------------------------------------------------"
 	./otelo 4 2 1 0 2 < $(TEST)/otelo4a.in | diff - $(TEST)/otelo4a_p1_m0_debug.out;
 	./otelo 4 2 1 1 2 < $(TEST)/otelo4a.in | diff - $(TEST)/otelo4a_p1_m1_debug.out;
 	./otelo 4 2 2 0 2 < $(TEST)/otelo4a.in | diff - $(TEST)/otelo4a_p2_m0_debug.out;
@@ -105,3 +104,4 @@ test_otelo_mm_debug2:
 	./otelo 8 2 1 1 2 < $(TEST)/otelo8_p1_m1.in | diff - $(TEST)/otelo8_p1_m1_debug.out;
 	./otelo 8 2 2 0 2 < $(TEST)/otelo8_p2_m0.in | diff - $(TEST)/otelo8_p2_m0_debug.out;
 	./otelo 8 2 2 1 2 < $(TEST)/otelo8_p2_m1.in | diff - $(TEST)/otelo8_p2_m1_debug.out;
+
